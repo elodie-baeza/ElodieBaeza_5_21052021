@@ -1,0 +1,118 @@
+body {
+    margin: auto;
+    box-sizing: border-box;
+    max-width: 1440px;
+    background: #ffffff;
+    font-family: 'lato', sans-serif;
+}
+
+header div{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 42px;
+}
+
+main{
+    margin: 0 6rem;
+}
+
+header h1{
+/* Les petits plats */
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: bold;
+font-size: 36px;
+line-height: 47px;
+/* identical to box height */
+text-align: center;
+margin-top: 0;
+color: #D04F4F;
+}
+
+.recherche{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+#recherche{
+    width: 100%;
+    background: #E7E7E7;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+}
+
+#recherche[type="text"] {
+    padding: 1.5rem;
+}
+
+.recherche button{
+    border: none;
+    margin-left: -3rem;
+    background-color: #E7E7E7;
+}
+
+.tags {
+    display: flex;
+
+}
+
+.filtres input {
+    opacity: 0;
+}
+
+.filtres label {
+    color: white;
+    /* padding: 1rem; */
+    padding-right: 2rem;
+    /* border-radius: 5px; */
+    /* margin-right: 2rem; */
+}
+
+.filtres {
+    padding: 1.5rem;
+    margin-right: 1rem;
+}
+
+.filtres:first-child {
+    background: #3282F7;
+}
+
+.filtres:nth-child(2) {
+    background: #68D9A4;
+}
+
+.filtres:nth-child(3) {
+    background: #ED6454;
+}
+
+.fa-angle-up {
+    color: white;
+}
+
+.filtres button {
+    border: none;
+    background: transparent;
+    /* margin-left: -3rem; */
+}
+
+.filtres ul {
+    /* position: absolute; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-left: 0;
+    height: 400px;
+    background: #3282F7;
+}
+
+.filtres li{
+    list-style: none;
+    padding: 0.6rem 0 0.6rem 1.2rem;
+    color: white;
+}
+
+#ingredients, #appareil, #ustensiles {
+    display: none;
+}
