@@ -1,0 +1,81 @@
+.recherche{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+#recherche{
+    width: 100%;
+    background: #E7E7E7;
+    font-size: 18px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+        &[type="text"] {
+            padding: 1.5rem;
+        }
+}
+
+.tags {
+    display: flex;
+}
+
+.filtres {
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+        div{
+            display: flex;
+        }
+        label {
+         color: white;
+         padding-right: 2rem;
+        }
+        &--ingredients {
+            background: #3282F7;
+        }
+        &--appareil {
+            background: #68D9A4;
+        }
+        &--ustensiles {
+            background: #ED6454;
+        }
+        
+        button {
+            border: none;
+            background: transparent;
+        }
+        ul {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            padding-left: 0;
+            height: 400px;
+            background: #3282F7;
+        }
+        li{
+            list-style: none;
+            padding: 0.6rem 0 0.6rem 1.2rem;
+            color: white;
+        }        
+}
+
+.fa-angle-down {
+    color: white;
+}
+
+#ingredients {
+    background: #3282F7;
+    @include filtreInput;
+}
+
+#appareil {
+    background: #68D9A4;
+    @include filtreInput;
+}
+
+#ustensiles {
+    background: #ED6454;
+    @include filtreInput;
+}

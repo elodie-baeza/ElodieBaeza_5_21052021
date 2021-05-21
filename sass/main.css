@@ -1,0 +1,216 @@
+body {
+  margin: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: 1440px;
+  background: #ffffff;
+}
+
+main {
+  margin: 0 6rem;
+}
+
+body {
+  font-family: 'lato', sans-serif;
+}
+
+.recherche button {
+  border: none;
+  background-color: #E7E7E7;
+  border-radius: 0 5px 5px 0;
+}
+
+header div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 42px;
+}
+
+header h1 {
+  /* Les petits plats */
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 47px;
+  /* identical to box height */
+  text-align: center;
+  margin-top: 0;
+  color: #D04F4F;
+}
+
+.recherche {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 2rem;
+}
+
+#recherche {
+  width: 100%;
+  background: #E7E7E7;
+  font-size: 18px;
+  border-radius: 5px 0 0 5px;
+  border: none;
+}
+
+#recherche[type="text"] {
+  padding: 1.5rem;
+}
+
+.tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.filtres {
+  margin-right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.filtres div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.filtres label {
+  color: white;
+  padding-right: 2rem;
+}
+
+.filtres--ingredients {
+  background: #3282F7;
+}
+
+.filtres--appareil {
+  background: #68D9A4;
+}
+
+.filtres--ustensiles {
+  background: #ED6454;
+}
+
+.filtres button {
+  border: none;
+  background: transparent;
+}
+
+.filtres ul {
+  position: relative;
+  z-index: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 0;
+  height: 400px;
+  background: #3282F7;
+}
+
+.filtres li {
+  list-style: none;
+  padding: 0.6rem 0 0.6rem 1.2rem;
+  color: white;
+}
+
+.fa-angle-down {
+  color: white;
+}
+
+#ingredients {
+  background: #3282F7;
+  padding: 1rem 2rem 1rem 1rem;
+  border: none;
+}
+
+#ingredients::-webkit-input-placeholder {
+  color: white;
+  font-size: 16px;
+}
+
+#ingredients:-ms-input-placeholder {
+  color: white;
+  font-size: 16px;
+}
+
+#ingredients::-ms-input-placeholder {
+  color: white;
+  font-size: 16px;
+}
+
+#ingredients::placeholder {
+  color: white;
+  font-size: 16px;
+}
+
+#appareil {
+  background: #68D9A4;
+  padding: 1rem 2rem 1rem 1rem;
+  border: none;
+}
+
+#appareil::-webkit-input-placeholder {
+  color: white;
+  font-size: 16px;
+}
+
+#appareil:-ms-input-placeholder {
+  color: white;
+  font-size: 16px;
+}
+
+#appareil::-ms-input-placeholder {
+  color: white;
+  font-size: 16px;
+}
+
+#appareil::placeholder {
+  color: white;
+  font-size: 16px;
+}
+
+#ustensiles {
+  background: #ED6454;
+  padding: 1rem 2rem 1rem 1rem;
+  border: none;
+}
+
+#ustensiles::-webkit-input-placeholder {
+  color: white;
+  font-size: 16px;
+}
+
+#ustensiles:-ms-input-placeholder {
+  color: white;
+  font-size: 16px;
+}
+
+#ustensiles::-ms-input-placeholder {
+  color: white;
+  font-size: 16px;
+}
+
+#ustensiles::placeholder {
+  color: white;
+  font-size: 16px;
+}
+/*# sourceMappingURL=main.css.map */
