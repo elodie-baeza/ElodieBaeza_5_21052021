@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Les petits plats</title>
-    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="icon" href="./public/img/logo.png" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,13 +18,13 @@
 <body>
     <header>
         <div>
-            <img src="logo.png" alt="">
+            <img src="./public/img/logo.png" alt="">
         </div>
         <h1>Les petits plats</h1>
     </header>
     <main>
-        <section>
-            <div class="recherche">
+        <section class="search">
+            <div class="rechercheContainer">
                 <input type="text" name="recherche" id="recherche" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
                 <button>
                     <i class="fa fa-search fa-2x" aria-hidden="true"></i>
@@ -32,7 +32,7 @@
             </div>
 
             <div class="filtresContainer">
-                <div class="container container--ingredients">
+                <div class="container container--ingredients" id="contIngredients">
                     <div class="row justify-content-between">
                             <input class="col-9" type="text" id="inputIngredients" name="ingredients" placeholder="Ingrédients">
                             <button type="button" class="btn">
@@ -40,40 +40,40 @@
                             </button>
                     </div>
                     <div class="row">
-                        <a class="col-4" href="#">Lait de coco</a>
-                        <a class="col-4" href="#">Jus de citron</a>
-                        <a class="col-4" href="#">Crème de coco</a>
-                        <a class="col-4" href="#">Sucre</a>
-                        <a class="col-4" href="#">Glaçons</a>
-                        <a class="col-4" href="#">Thon rouge</a>
-                        <a class="col-4" href="#">Concombre</a>
-                        <a class="col-4" href="#">Tomate</a>
-                        <a class="col-4" href="#">Carotte</a>
-                        <a class="col-4" href="#">Citron Vert</a>
-                        <a class="col-4" href="#">Poulet</a>
-                        <a class="col-4" href="#">Coulis de tomate</a>
-                        <a class="col-4" href="#">Oignon</a>
-                        <a class="col-4" href="#">Poivron rouge</a>
-                        <a class="col-4" href="#">Huile d'olive</a>
-                        <a class="col-4" href="#">Riz blanc</a>
-                        <a class="col-4" href="#">Thon en miettes</a>
-                        <a class="col-4" href="#">Oeuf dur</a>
-                        <a class="col-4" href="#">Maïs</a>
-                        <a class="col-4" href="#">Vinaigrette</a>
-                        <a class="col-4" href="#">Pâte feuilletée</a>
-                        <a class="col-4" href="#">Crème fraiche</a>
-                        <a class="col-4" href="#">Gruyère râpé</a>
-                        <a class="col-4" href="#">Moutarde de Dijon</a>
-                        <a class="col-4" href="#">Pomme</a>
-                        <a class="col-4" href="#">Oeuf</a>
-                        <a class="col-4" href="#">Sucre en poudre</a>
-                        <a class="col-4" href="#">Chocolat au lait</a>
-                        <a class="col-4" href="#">Crème liquide</a>
-                        <a class="col-4" href="#">Beurre</a>
+                        <a class="col-4 ingredient" href="#">Lait de coco</a>
+                        <a class="col-4 ingredient" href="#">Jus de citron</a>
+                        <a class="col-4 ingredient" href="#">Crème de coco</a>
+                        <a class="col-4 ingredient" href="#">Sucre</a>
+                        <a class="col-4 ingredient" href="#">Glaçons</a>
+                        <a class="col-4 ingredient" href="#">Thon rouge</a>
+                        <a class="col-4 ingredient" href="#">Concombre</a>
+                        <a class="col-4 ingredient" href="#">Tomate</a>
+                        <a class="col-4 ingredient" href="#">Carotte</a>
+                        <a class="col-4 ingredient" href="#">Citron Vert</a>
+                        <a class="col-4 ingredient" href="#">Poulet</a>
+                        <a class="col-4 ingredient" href="#">Coulis de tomate</a>
+                        <a class="col-4 ingredient" href="#">Oignon</a>
+                        <a class="col-4 ingredient" href="#">Poivron rouge</a>
+                        <a class="col-4 ingredient" href="#">Huile d'olive</a>
+                        <a class="col-4 ingredient" href="#">Riz blanc</a>
+                        <a class="col-4 ingredient" href="#">Thon en miettes</a>
+                        <a class="col-4 ingredient" href="#">Oeuf dur</a>
+                        <a class="col-4 ingredient" href="#">Maïs</a>
+                        <a class="col-4 ingredient" href="#">Vinaigrette</a>
+                        <a class="col-4 ingredient" href="#">Pâte feuilletée</a>
+                        <a class="col-4 ingredient" href="#">Crème fraiche</a>
+                        <a class="col-4 ingredient" href="#">Gruyère râpé</a>
+                        <a class="col-4 ingredient" href="#">Moutarde de Dijon</a>
+                        <a class="col-4 ingredient" href="#">Pomme</a>
+                        <a class="col-4 ingredient" href="#">Oeuf</a>
+                        <a class="col-4 ingredient" href="#">Sucre en poudre</a>
+                        <a class="col-4 ingredient" href="#">Chocolat au lait</a>
+                        <a class="col-4 ingredient" href="#">Crème liquide</a>
+                        <a class="col-4 ingredient" href="#">Beurre</a>
                     </div>
                 </div>
                 
-                <div class="container container--appareils">
+                <div class="container container--appareils container--collapse" id="contAppareils">
                     <div class="row justify-content-between">
                             <input class="col-9" type="text" id="inputAppareils" name="appareils" placeholder="Appareils">
                             <button type="button" class="btn">
@@ -81,40 +81,21 @@
                             </button>
                     </div>
                     <!-- <div class="row">
-                        <a class="col-4" href="#">Lait de coco</a>
-                        <a class="col-4" href="#">Jus de citron</a>
-                        <a class="col-4" href="#">Crème de coco</a>
-                        <a class="col-4" href="#">Sucre</a>
-                        <a class="col-4" href="#">Glaçons</a>
-                        <a class="col-4" href="#">Thon rouge</a>
-                        <a class="col-4" href="#">Concombre</a>
-                        <a class="col-4" href="#">Tomate</a>
-                        <a class="col-4" href="#">Carotte</a>
-                        <a class="col-4" href="#">Citron Vert</a>
-                        <a class="col-4" href="#">Poulet</a>
-                        <a class="col-4" href="#">Coulis de tomate</a>
-                        <a class="col-4" href="#">Oignon</a>
-                        <a class="col-4" href="#">Poivron rouge</a>
-                        <a class="col-4" href="#">Huile d'olive</a>
-                        <a class="col-4" href="#">Riz blanc</a>
-                        <a class="col-4" href="#">Thon en miettes</a>
-                        <a class="col-4" href="#">Oeuf dur</a>
-                        <a class="col-4" href="#">Maïs</a>
-                        <a class="col-4" href="#">Vinaigrette</a>
-                        <a class="col-4" href="#">Pâte feuilletée</a>
-                        <a class="col-4" href="#">Crème fraiche</a>
-                        <a class="col-4" href="#">Gruyère râpé</a>
-                        <a class="col-4" href="#">Moutarde de Dijon</a>
-                        <a class="col-4" href="#">Pomme</a>
-                        <a class="col-4" href="#">Oeuf</a>
-                        <a class="col-4" href="#">Sucre en poudre</a>
-                        <a class="col-4" href="#">Chocolat au lait</a>
-                        <a class="col-4" href="#">Crème liquide</a>
-                        <a class="col-4" href="#">Beurre</a>
+                        <a href="#" class="dropdown__content__links">Blender</a>
+                        <a class="col-4" href="#">Saladier</a>
+                        <a class="col-4" href="#">Cocotte</a>
+                        <a class="col-4" href="#">Cuiseur de riz</a>
+                        <a class="col-4" href="#">Four</a>
+                        <a class="col-4" href="#">Casserole</a>
+                        <a class="col-4" href="#">Poële à crêpe</a>
+                        <a class="col-4" href="#">Sauteuse</a>
+                        <a class="col-4" href="#">Mixer</a>
+                        <a class="col-4" href="#">Poêle</a>
+                        <a class="col-4" href="#">Moule à charlotte</a>
                     </div> -->
                 </div>
                 
-                <div class="container container--ustensiles">
+                <div class="container container--ustensiles container--collapse" id="contUstensiles">
                     <div class="row justify-content-between">
                             <input class="col-9" type="text" id="inputUstensiles" name="ustensiles" placeholder="Ustensiles">
                             <button type="button" class="btn">
@@ -122,43 +103,133 @@
                             </button>
                     </div>
                     <!-- <div class="row">
-                        <a class="col-4" href="#">Lait de coco</a>
-                        <a class="col-4" href="#">Jus de citron</a>
-                        <a class="col-4" href="#">Crème de coco</a>
-                        <a class="col-4" href="#">Sucre</a>
-                        <a class="col-4" href="#">Glaçons</a>
-                        <a class="col-4" href="#">Thon rouge</a>
-                        <a class="col-4" href="#">Concombre</a>
-                        <a class="col-4" href="#">Tomate</a>
-                        <a class="col-4" href="#">Carotte</a>
-                        <a class="col-4" href="#">Citron Vert</a>
-                        <a class="col-4" href="#">Poulet</a>
-                        <a class="col-4" href="#">Coulis de tomate</a>
-                        <a class="col-4" href="#">Oignon</a>
-                        <a class="col-4" href="#">Poivron rouge</a>
-                        <a class="col-4" href="#">Huile d'olive</a>
-                        <a class="col-4" href="#">Riz blanc</a>
-                        <a class="col-4" href="#">Thon en miettes</a>
-                        <a class="col-4" href="#">Oeuf dur</a>
-                        <a class="col-4" href="#">Maïs</a>
-                        <a class="col-4" href="#">Vinaigrette</a>
-                        <a class="col-4" href="#">Pâte feuilletée</a>
-                        <a class="col-4" href="#">Crème fraiche</a>
-                        <a class="col-4" href="#">Gruyère râpé</a>
-                        <a class="col-4" href="#">Moutarde de Dijon</a>
-                        <a class="col-4" href="#">Pomme</a>
-                        <a class="col-4" href="#">Oeuf</a>
-                        <a class="col-4" href="#">Sucre en poudre</a>
-                        <a class="col-4" href="#">Chocolat au lait</a>
-                        <a class="col-4" href="#">Crème liquide</a>
-                        <a class="col-4" href="#">Beurre</a>
+                        <a class="col-4" href="#">Cuillère à soupe</a>
+                        <a class="col-4" href="#">Verres</a>
+                        <a class="col-4" href="#">Presse citron</a>
+                        <a class="col-4" href="#">Couteau</a>
+                        <a class="col-4" href="#">Saladier</a>
+                        <a class="col-4" href="#">Passoire</a>
+                        <a class="col-4" href="#">Moule à tarte</a>
+                        <a class="col-4" href="#">Râpe à fromage</a>
+                        <a class="col-4" href="#">Fourchette</a>
+                        <a class="col-4" href="#">Moule à tartelettes (6)</a>
+                        <a class="col-4" href="#">Casserole</a>
+                        <a class="col-4" href="#">Moule à gâteaux</a>
+                        <a class="col-4" href="#">Cuillère en bois</a>
+                        <a class="col-4" href="#">Plat à gratin</a>
+                        <a class="col-4" href="#">Économe</a>
+                        <a class="col-4" href="#">Cuillère à melon</a>
+                        <a class="col-4" href="#">Poêle à frire</a>
+                        <a class="col-4" href="#">Louche</a>
+                        <a class="col-4" href="#">Fouet</a>
+                        <a class="col-4" href="#">Rouleau à patisserie</a>
+                        <a class="col-4" href="#">Plaque de cuisson</a>
+                        <a class="col-4" href="#">Cocotte minute</a>
+                        <a class="col-4" href="#">Bol</a>
+                        <a class="col-4" href="#">Spatule</a>
+                        <a class="col-4" href="#">Moule</a>
                     </div> -->
                 </div>
             </div>
+        </section>
+        <section class="recipesContainer">
+            <div class="card">
+                <img src="./public/img/recette-cabillaud-pane-herbes-1200x619.jpg" class="card-img-top" alt="...">
+                <div class="container card-body">
+                    <div class="row justify-content-between">
+                        <h5 class="col card-title recipesName">Card title</h5>
+                        <div class="col-4">
+                            <i class="far fa-clock fa-2x"></i>
+                            <span class="recipesTime"><strong>80 min</strong></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul class="col-6 recipesIngredients">
+                            <li>Lait de coco: 400ml</li>
+                            <li>Jus de citron: 2</li>
+                            <li>Créme de coco: 4 cuillères</li>
+                            <li>Sucre: 20g</li>
+                            <li>Glaçons: 2</li>
+                        </ul>
+                        <p class="col-6 card-text recipesDescription">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="./public/img/recette-cabillaud-pane-herbes-1200x619.jpg" class="card-img-top" alt="...">
+                <div class="container card-body">
+                    <div class="row justify-content-between">
+                        <h5 class="col card-title recipesName">Card title</h5>
+                        <div class="col-4">
+                            <i class="far fa-clock fa-2x"></i>
+                            <span class="recipesTime"><strong>80 min</strong></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul class="col-6 recipesIngredients">
+                            <li>Lait de coco: 400ml</li>
+                            <li>Jus de citron: 2</li>
+                            <li>Créme de coco: 4 cuillères</li>
+                            <li>Sucre: 20g</li>
+                            <li>Glaçons: 2</li>
+                        </ul>
+                        <p class="col-6 card-text recipesDescription">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="./public/img/recette-cabillaud-pane-herbes-1200x619.jpg" class="card-img-top" alt="...">
+                <div class="container card-body">
+                    <div class="row justify-content-between">
+                        <h5 class="col card-title recipesName">Card title</h5>
+                        <div class="col-4">
+                            <i class="far fa-clock fa-2x"></i>
+                            <span class="recipesTime"><strong>80 min</strong></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul class="col-6 recipesIngredients">
+                            <li>Lait de coco: 400ml</li>
+                            <li>Jus de citron: 2</li>
+                            <li>Créme de coco: 4 cuillères</li>
+                            <li>Sucre: 20g</li>
+                            <li>Glaçons: 2</li>
+                        </ul>
+                        <p class="col-6 card-text recipesDescription">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="./public/img/recette-cabillaud-pane-herbes-1200x619.jpg" class="card-img-top" alt="...">
+                <div class="container card-body">
+                    <div class="row justify-content-between">
+                        <h5 class="col card-title recipesName">Card title</h5>
+                        <div class="col-4">
+                            <i class="far fa-clock fa-2x"></i>
+                            <span class="recipesTime"><strong>80 min</strong></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul class="col-6 recipesIngredients">
+                            <li>Lait de coco: 400ml</li>
+                            <li>Jus de citron: 2</li>
+                            <li>Créme de coco: 4 cuillères</li>
+                            <li>Sucre: 20g</li>
+                            <li>Glaçons: 2</li>
+                        </ul>
+                        <p class="col-6 card-text recipesDescription">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+
         </section>
     </main>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="searchIngredient.js"></script>
 </body>
 </html>

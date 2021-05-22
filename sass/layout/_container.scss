@@ -1,7 +1,12 @@
-.recherche{
+.rechercheContainer{
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
+    button {
+        border-width: 0;
+        background: #E7E7E7;
+        padding: 0 0.5rem;
+    }
 }
 
 #recherche{
@@ -16,6 +21,10 @@
         &:focus-visible{
             outline-width: 0;
         }
+}
+
+section {
+    margin-bottom: 4rem;
 }
 
 .list-group {
@@ -43,17 +52,17 @@
     color: white;
 }
 
-.container--ingredients {
-    // width: 11rem;
+.container--collapse {
+    width: 11rem;
 }
+
+// .container--expand {
+//     width: auto;
+// }
 
 .container--ingredients>div, .container--ingredients input {
     background: #3282F7;
     @include filtreInput;
-}
-
-.container--appareils {
-    width: 11rem;
 }
 
 .container--appareils>div, .container--appareils input {
@@ -62,9 +71,6 @@
     @include filtreInput;
 }
 
-.container--ustensiles {
-    width: 11rem;
-}
 .container--ustensiles>div, .container--ustensiles input {
     background: #ED6454;
     width: 11rem;

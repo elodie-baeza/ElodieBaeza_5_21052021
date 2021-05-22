@@ -15,6 +15,10 @@ body {
   background: #ffffff;
 }
 
+li {
+  list-style: none;
+}
+
 main {
   margin: 0 6rem;
 }
@@ -32,6 +36,19 @@ input {
 li {
   font-family: Lato;
   font-size: 18px;
+}
+
+.card {
+  font-family: 'lato', sans-serif;
+  font-size: 12px;
+}
+
+.card span, .card h5 {
+  font-size: 18px;
+}
+
+.card li {
+  font-size: 12px;
 }
 
 .recherche button {
@@ -63,7 +80,7 @@ header h1 {
   color: #D04F4F;
 }
 
-.recherche {
+.rechercheContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -71,6 +88,12 @@ header h1 {
       -ms-flex-pack: center;
           justify-content: center;
   margin-bottom: 2rem;
+}
+
+.rechercheContainer button {
+  border-width: 0;
+  background: #E7E7E7;
+  padding: 0 0.5rem;
 }
 
 #recherche {
@@ -87,6 +110,10 @@ header h1 {
 
 #recherche:focus-visible {
   outline-width: 0;
+}
+
+section {
+  margin-bottom: 4rem;
 }
 
 .list-group {
@@ -115,6 +142,10 @@ header h1 {
 
 .fa-chevron-down {
   color: white;
+}
+
+.container--collapse {
+  width: 11rem;
 }
 
 .container--ingredients > div, .container--ingredients input {
@@ -152,10 +183,6 @@ header h1 {
 
 .container--ingredients > div a, .container--ingredients input a {
   color: white;
-}
-
-.container--appareils {
-  width: 11rem;
 }
 
 .container--appareils > div, .container--appareils input {
@@ -196,10 +223,6 @@ header h1 {
   color: white;
 }
 
-.container--ustensiles {
-  width: 11rem;
-}
-
 .container--ustensiles > div, .container--ustensiles input {
   background: #ED6454;
   width: 11rem;
@@ -236,5 +259,22 @@ header h1 {
 
 .container--ustensiles > div a, .container--ustensiles input a {
   color: white;
+}
+
+.recipesContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.card {
+  width: 380px;
+  height: 364px;
+  margin-bottom: 3rem;
 }
 /*# sourceMappingURL=main.css.map */
