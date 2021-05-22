@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
     <link rel="stylesheet" href="./public/css/style.css">
     <script type="module" src="app.js"></script>
@@ -17,7 +18,7 @@
 <body>
     <header>
         <div>
-        <img src="logo.png" alt="">
+            <img src="logo.png" alt="">
         </div>
         <h1>Les petits plats</h1>
     </header>
@@ -29,137 +30,135 @@
                     <i class="fa fa-search fa-2x" aria-hidden="true"></i>
                 </button>
             </div>
-            <div class="tags">
-                <div class="filtres filtres--ingredients">
-                    <div>
-                        <input type="text" name="ingredients" id="ingredients" placeholder="Ingédients">
-                        <button>
-                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                        </button>
+
+            <div class="filtresContainer">
+                <div class="container container--ingredients">
+                    <div class="row justify-content-between">
+                            <input class="col-9" type="text" id="inputIngredients" name="ingredients" placeholder="Ingrédients">
+                            <button type="button" class="btn">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
                     </div>
-                    <ul>
-                        <li>Lait de coco</li>
-                        <li>Sucre</li>
-                        <li>Concombre</li>
-                        <li>Citron Vert</li>
-                        <li>Oignon</li>
-                        <li>Riz blanc</li>
-                        <li>Maïs</li>
-                        <li>Crème fraiche</li>
-                        <li>Pomme</li>
-                        <li>Chocolat au lait</li>
-                        <li>Jus de citron</li>
-                        <li>Glaçons</li>
-                        <li>Tomate</li>
-                        <li>Poulet</li>
-                        <li>Poivron rouge</li>
-                        <li>Thon en miettes</li>
-                        <li>Vinaigrette</li>
-                        <li>Gruyère râpé</li>
-                        <li>Oeuf</li>
-                        <li>Crème liquide</li>
-                        <li>Crème de coco</li>
-                        <li>Thon rouge</li>
-                        <li>Carotte</li>
-                        <li>Coulis de tomate</li>
-                        <li>Huile d'olive</li>
-                        <li>Oeuf dur</li>
-                        <li>Pâte feuilletée</li>
-                        <li>Moutarde de Dijon</li>
-                        <li>Sucre en poudre</li>
-                        <li>Beurrre</li>
-                    </ul>
+                    <div class="row">
+                        <a class="col-4" href="#">Lait de coco</a>
+                        <a class="col-4" href="#">Jus de citron</a>
+                        <a class="col-4" href="#">Crème de coco</a>
+                        <a class="col-4" href="#">Sucre</a>
+                        <a class="col-4" href="#">Glaçons</a>
+                        <a class="col-4" href="#">Thon rouge</a>
+                        <a class="col-4" href="#">Concombre</a>
+                        <a class="col-4" href="#">Tomate</a>
+                        <a class="col-4" href="#">Carotte</a>
+                        <a class="col-4" href="#">Citron Vert</a>
+                        <a class="col-4" href="#">Poulet</a>
+                        <a class="col-4" href="#">Coulis de tomate</a>
+                        <a class="col-4" href="#">Oignon</a>
+                        <a class="col-4" href="#">Poivron rouge</a>
+                        <a class="col-4" href="#">Huile d'olive</a>
+                        <a class="col-4" href="#">Riz blanc</a>
+                        <a class="col-4" href="#">Thon en miettes</a>
+                        <a class="col-4" href="#">Oeuf dur</a>
+                        <a class="col-4" href="#">Maïs</a>
+                        <a class="col-4" href="#">Vinaigrette</a>
+                        <a class="col-4" href="#">Pâte feuilletée</a>
+                        <a class="col-4" href="#">Crème fraiche</a>
+                        <a class="col-4" href="#">Gruyère râpé</a>
+                        <a class="col-4" href="#">Moutarde de Dijon</a>
+                        <a class="col-4" href="#">Pomme</a>
+                        <a class="col-4" href="#">Oeuf</a>
+                        <a class="col-4" href="#">Sucre en poudre</a>
+                        <a class="col-4" href="#">Chocolat au lait</a>
+                        <a class="col-4" href="#">Crème liquide</a>
+                        <a class="col-4" href="#">Beurre</a>
+                    </div>
                 </div>
-                <div class="filtres filtres--appareil">
-                    <input type="text" name="appareil" id="appareil" placeholder="Appareil">
-                    <button>
-                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                    </button>
-                    <!-- <ul>
-                        <li>Lait de coco</li>
-                        <li>Sucre</li>
-                        <li>Concombre</li>
-                        <li>Citron Vert</li>
-                        <li>Oignon</li>
-                        <li>Riz blanc</li>
-                        <li>Maïs</li>
-                        <li>Crème fraiche</li>
-                        <li>Pomme</li>
-                        <li>Chocolat au lait</li>
-                        <li>Jus de citron</li>
-                        <li>Glaçons</li>
-                        <li>Tomate</li>
-                        <li>Poulet</li>
-                        <li>Poivron rouge</li>
-                        <li>Thon en miettes</li>
-                        <li>Vinaigrette</li>
-                        <li>Gruyère râpé</li>
-                        <li>Oeuf</li>
-                        <li>Crème liquide</li>
-                        <li>Crème de coco</li>
-                        <li>Thon rouge</li>
-                        <li>Carotte</li>
-                        <li>Coulis de tomate</li>
-                        <li>Huile d'olive</li>
-                        <li>Oeuf dur</li>
-                        <li>Pâte feuilletée</li>
-                        <li>Moutarde de Dijon</li>
-                        <li>Sucre en poudre</li>
-                        <li>Beurrre</li>
-                    </ul> -->
+                
+                <div class="container container--appareils">
+                    <div class="row justify-content-between">
+                            <input class="col-9" type="text" id="inputAppareils" name="appareils" placeholder="Appareils">
+                            <button type="button" class="btn">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                    </div>
+                    <!-- <div class="row">
+                        <a class="col-4" href="#">Lait de coco</a>
+                        <a class="col-4" href="#">Jus de citron</a>
+                        <a class="col-4" href="#">Crème de coco</a>
+                        <a class="col-4" href="#">Sucre</a>
+                        <a class="col-4" href="#">Glaçons</a>
+                        <a class="col-4" href="#">Thon rouge</a>
+                        <a class="col-4" href="#">Concombre</a>
+                        <a class="col-4" href="#">Tomate</a>
+                        <a class="col-4" href="#">Carotte</a>
+                        <a class="col-4" href="#">Citron Vert</a>
+                        <a class="col-4" href="#">Poulet</a>
+                        <a class="col-4" href="#">Coulis de tomate</a>
+                        <a class="col-4" href="#">Oignon</a>
+                        <a class="col-4" href="#">Poivron rouge</a>
+                        <a class="col-4" href="#">Huile d'olive</a>
+                        <a class="col-4" href="#">Riz blanc</a>
+                        <a class="col-4" href="#">Thon en miettes</a>
+                        <a class="col-4" href="#">Oeuf dur</a>
+                        <a class="col-4" href="#">Maïs</a>
+                        <a class="col-4" href="#">Vinaigrette</a>
+                        <a class="col-4" href="#">Pâte feuilletée</a>
+                        <a class="col-4" href="#">Crème fraiche</a>
+                        <a class="col-4" href="#">Gruyère râpé</a>
+                        <a class="col-4" href="#">Moutarde de Dijon</a>
+                        <a class="col-4" href="#">Pomme</a>
+                        <a class="col-4" href="#">Oeuf</a>
+                        <a class="col-4" href="#">Sucre en poudre</a>
+                        <a class="col-4" href="#">Chocolat au lait</a>
+                        <a class="col-4" href="#">Crème liquide</a>
+                        <a class="col-4" href="#">Beurre</a>
+                    </div> -->
                 </div>
-                <div class="filtres filtres--ustensiles">
-                    <input type="text" name="ustensiles" id="ustensiles" placeholder="Ustensiles">
-                    <button>
-                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                    </button>
-                    <!-- <ul>
-                        <li>Lait de coco</li>
-                        <li>Sucre</li>
-                        <li>Concombre</li>
-                        <li>Citron Vert</li>
-                        <li>Oignon</li>
-                        <li>Riz blanc</li>
-                        <li>Maïs</li>
-                        <li>Crème fraiche</li>
-                        <li>Pomme</li>
-                        <li>Chocolat au lait</li>
-                        <li>Jus de citron</li>
-                        <li>Glaçons</li>
-                        <li>Tomate</li>
-                        <li>Poulet</li>
-                        <li>Poivron rouge</li>
-                        <li>Thon en miettes</li>
-                        <li>Vinaigrette</li>
-                        <li>Gruyère râpé</li>
-                        <li>Oeuf</li>
-                        <li>Crème liquide</li>
-                        <li>Crème de coco</li>
-                        <li>Thon rouge</li>
-                        <li>Carotte</li>
-                        <li>Coulis de tomate</li>
-                        <li>Huile d'olive</li>
-                        <li>Oeuf dur</li>
-                        <li>Pâte feuilletée</li>
-                        <li>Moutarde de Dijon</li>
-                        <li>Sucre en poudre</li>
-                        <li>Beurrre</li>
-                    </ul> -->
+                
+                <div class="container container--ustensiles">
+                    <div class="row justify-content-between">
+                            <input class="col-9" type="text" id="inputUstensiles" name="ustensiles" placeholder="Ustensiles">
+                            <button type="button" class="btn">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                    </div>
+                    <!-- <div class="row">
+                        <a class="col-4" href="#">Lait de coco</a>
+                        <a class="col-4" href="#">Jus de citron</a>
+                        <a class="col-4" href="#">Crème de coco</a>
+                        <a class="col-4" href="#">Sucre</a>
+                        <a class="col-4" href="#">Glaçons</a>
+                        <a class="col-4" href="#">Thon rouge</a>
+                        <a class="col-4" href="#">Concombre</a>
+                        <a class="col-4" href="#">Tomate</a>
+                        <a class="col-4" href="#">Carotte</a>
+                        <a class="col-4" href="#">Citron Vert</a>
+                        <a class="col-4" href="#">Poulet</a>
+                        <a class="col-4" href="#">Coulis de tomate</a>
+                        <a class="col-4" href="#">Oignon</a>
+                        <a class="col-4" href="#">Poivron rouge</a>
+                        <a class="col-4" href="#">Huile d'olive</a>
+                        <a class="col-4" href="#">Riz blanc</a>
+                        <a class="col-4" href="#">Thon en miettes</a>
+                        <a class="col-4" href="#">Oeuf dur</a>
+                        <a class="col-4" href="#">Maïs</a>
+                        <a class="col-4" href="#">Vinaigrette</a>
+                        <a class="col-4" href="#">Pâte feuilletée</a>
+                        <a class="col-4" href="#">Crème fraiche</a>
+                        <a class="col-4" href="#">Gruyère râpé</a>
+                        <a class="col-4" href="#">Moutarde de Dijon</a>
+                        <a class="col-4" href="#">Pomme</a>
+                        <a class="col-4" href="#">Oeuf</a>
+                        <a class="col-4" href="#">Sucre en poudre</a>
+                        <a class="col-4" href="#">Chocolat au lait</a>
+                        <a class="col-4" href="#">Crème liquide</a>
+                        <a class="col-4" href="#">Beurre</a>
+                    </div> -->
                 </div>
             </div>
         </section>
-        <!-- <figure id="1">
-            <figcaption>
-                <header>
-                    <p>Limonade de coco</p>
-                    <i class="far fa-clock" aria-hidden="true"></i>
-                    <p>10 min</p>
-                </header>
-                <ul>
-                    <li></li>
-                </ul>
-            </figcaption>
-        </figure> -->
     </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>

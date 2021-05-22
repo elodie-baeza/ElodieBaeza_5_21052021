@@ -13,69 +13,60 @@
         &[type="text"] {
             padding: 1.5rem;
         }
+        &:focus-visible{
+            outline-width: 0;
+        }
 }
 
-.tags {
+.list-group {
+    flex-wrap: wrap;
+    max-height: 530px;
+}
+
+.container {
+    width: auto;
+    max-width: 540px;
+    margin-left: 0;
+    margin-right: 15px;
+}
+
+.col-4 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.filtresContainer {
     display: flex;
 }
 
-.filtres {
-    margin-right: 1rem;
-    display: flex;
-    flex-direction: column;
-        div{
-            display: flex;
-        }
-        label {
-         color: white;
-         padding-right: 2rem;
-        }
-        &--ingredients {
-            background: #3282F7;
-        }
-        &--appareil {
-            background: #68D9A4;
-        }
-        &--ustensiles {
-            background: #ED6454;
-        }
-        
-        button {
-            border: none;
-            background: transparent;
-        }
-        ul {
-            position: relative;
-            z-index: 5;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: column;
-            padding-left: 0;
-            height: 400px;
-            background: #3282F7;
-        }
-        li{
-            list-style: none;
-            padding: 0.6rem 0 0.6rem 1.2rem;
-            color: white;
-        }        
-}
-
-.fa-angle-down {
+.fa-chevron-down {
     color: white;
 }
 
-#ingredients {
+.container--ingredients {
+    // width: 11rem;
+}
+
+.container--ingredients>div, .container--ingredients input {
     background: #3282F7;
     @include filtreInput;
 }
 
-#appareil {
+.container--appareils {
+    width: 11rem;
+}
+
+.container--appareils>div, .container--appareils input {
     background: #68D9A4;
+    width: 11rem;
     @include filtreInput;
 }
 
-#ustensiles {
+.container--ustensiles {
+    width: 11rem;
+}
+.container--ustensiles>div, .container--ustensiles input {
     background: #ED6454;
+    width: 11rem;
     @include filtreInput;
 }

@@ -1,3 +1,11 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
 body {
   margin: auto;
   box-sizing: border-box;
@@ -13,10 +21,22 @@ body {
   font-family: "lato", sans-serif;
 }
 
+input {
+  font-family: "lato", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+li {
+  font-family: Lato;
+  font-size: 18px;
+}
+
 .recherche button {
   border: none;
   background-color: #E7E7E7;
   border-radius: 0 5px 5px 0;
+  padding: 0 1rem;
 }
 
 header div {
@@ -53,84 +73,100 @@ header h1 {
 #recherche[type=text] {
   padding: 1.5rem;
 }
-
-.tags {
-  display: flex;
+#recherche:focus-visible {
+  outline-width: 0;
 }
 
-.filtres {
-  margin-right: 1rem;
-  display: flex;
-  flex-direction: column;
-}
-.filtres div {
-  display: flex;
-}
-.filtres label {
-  color: white;
-  padding-right: 2rem;
-}
-.filtres--ingredients {
-  background: #3282F7;
-}
-.filtres--appareil {
-  background: #68D9A4;
-}
-.filtres--ustensiles {
-  background: #ED6454;
-}
-.filtres button {
-  border: none;
-  background: transparent;
-}
-.filtres ul {
-  position: relative;
-  z-index: 5;
-  display: flex;
+.list-group {
   flex-wrap: wrap;
-  flex-direction: column;
-  padding-left: 0;
-  height: 400px;
-  background: #3282F7;
+  max-height: 530px;
 }
-.filtres li {
-  list-style: none;
-  padding: 0.6rem 0 0.6rem 1.2rem;
+
+.container {
+  width: auto;
+  max-width: 540px;
+  margin-left: 0;
+  margin-right: 15px;
+}
+
+.col-4 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.filtresContainer {
+  display: flex;
+}
+
+.fa-chevron-down {
   color: white;
 }
 
-.fa-angle-down {
-  color: white;
-}
-
-#ingredients {
+.container--ingredients > div, .container--ingredients input {
   background: #3282F7;
-  padding: 1rem 2rem 1rem 1rem;
   border: none;
+  border-radius: 5px;
+  color: white;
+  padding-bottom: 7px;
+  margin-bottom: -7px;
 }
-#ingredients::placeholder {
+.container--ingredients > div::placeholder, .container--ingredients input::placeholder {
   color: white;
   font-size: 16px;
 }
+.container--ingredients > div:focus-visible, .container--ingredients input:focus-visible {
+  outline-width: 0;
+}
+.container--ingredients > div a, .container--ingredients input a {
+  color: white;
+}
 
-#appareil {
+.container--appareils {
+  width: 11rem;
+}
+
+.container--appareils > div, .container--appareils input {
   background: #68D9A4;
-  padding: 1rem 2rem 1rem 1rem;
+  width: 11rem;
   border: none;
+  border-radius: 5px;
+  color: white;
+  padding-bottom: 7px;
+  margin-bottom: -7px;
 }
-#appareil::placeholder {
+.container--appareils > div::placeholder, .container--appareils input::placeholder {
   color: white;
   font-size: 16px;
+}
+.container--appareils > div:focus-visible, .container--appareils input:focus-visible {
+  outline-width: 0;
+}
+.container--appareils > div a, .container--appareils input a {
+  color: white;
 }
 
-#ustensiles {
-  background: #ED6454;
-  padding: 1rem 2rem 1rem 1rem;
-  border: none;
+.container--ustensiles {
+  width: 11rem;
 }
-#ustensiles::placeholder {
+
+.container--ustensiles > div, .container--ustensiles input {
+  background: #ED6454;
+  width: 11rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding-bottom: 7px;
+  margin-bottom: -7px;
+}
+.container--ustensiles > div::placeholder, .container--ustensiles input::placeholder {
   color: white;
   font-size: 16px;
+}
+.container--ustensiles > div:focus-visible, .container--ustensiles input:focus-visible {
+  outline-width: 0;
+}
+.container--ustensiles > div a, .container--ustensiles input a {
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

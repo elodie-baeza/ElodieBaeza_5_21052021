@@ -1,11 +1,17 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
 body {
     margin: auto;
     box-sizing: border-box;
     max-width: 1440px;
     background: #ffffff;
 }
-
-
 
 main{
     margin: 0 6rem;
