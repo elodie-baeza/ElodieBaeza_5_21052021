@@ -1,0 +1,44 @@
+.dropdown {
+    display: block;
+    margin-right: 1.5rem;
+    margin-top: 1rem;
+    .row {
+        height: 4rem;
+        margin: 0;
+    }
+    .row--collapse {
+        width: 11rem;
+        .fa-chevron-down {
+            transform: rotate(0deg);
+            transition: 0.6s;
+        }        
+    }
+    .show {
+        width: 41rem;
+        .fa-chevron-down {
+            transform: rotate(180deg);
+            transition: 1s;
+        }        
+    }
+    &-menu {
+        margin: 0;
+        border-radius: 0;
+        &.show {
+            padding: 1rem 0;
+            margin-top: -5px;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 5px;
+        }
+    }     
+}
+
+.col-4 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    white-space: nowrap;
+}
+
+.btn:focus {
+    box-shadow: none;
+}

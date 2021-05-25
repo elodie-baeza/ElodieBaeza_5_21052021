@@ -1,9 +1,6 @@
 @mixin filtreInput {
     border: none;
-    border-radius: 5px;
     color: white;
-    padding-bottom: 7px;
-    margin-bottom: -7px;
         &::placeholder{
             color: white;
             font-size: 16px;

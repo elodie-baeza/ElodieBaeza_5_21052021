@@ -51,11 +51,16 @@ li {
   font-size: 12px;
 }
 
-.recherche button {
+.rechercheContainer button {
   border: none;
-  background-color: #E7E7E7;
+  border-width: 0;
+  background: #E7E7E7;
+  padding: 0 0.5rem;
   border-radius: 0 5px 5px 0;
-  padding: 0 1rem;
+}
+
+.btn {
+  border-radius: 0 5px 5px 0;
 }
 
 header div {
@@ -90,12 +95,6 @@ header h1 {
   margin-bottom: 2rem;
 }
 
-.rechercheContainer button {
-  border-width: 0;
-  background: #E7E7E7;
-  padding: 0 0.5rem;
-}
-
 #recherche {
   width: 100%;
   background: #E7E7E7;
@@ -116,148 +115,129 @@ section {
   margin-bottom: 4rem;
 }
 
-.list-group {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  max-height: 530px;
-}
-
-.container {
-  width: auto;
-  max-width: 540px;
-  margin-left: 0;
-  margin-right: 15px;
-}
-
-.col-4 {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
 .filtresContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .fa-chevron-down {
   color: white;
 }
 
-.container--collapse {
-  width: 11rem;
+.container--ingredients input {
+  border-radius: 5px 0 0 5px;
 }
 
-.container--ingredients > div, .container--ingredients input {
+.container--ingredients input, .container--ingredients button, .container--ingredients .dropdown-menu, .container--ingredients .col-4 {
   background: #3282F7;
   border: none;
-  border-radius: 5px;
   color: white;
-  padding-bottom: 7px;
-  margin-bottom: -7px;
 }
 
-.container--ingredients > div::-webkit-input-placeholder, .container--ingredients input::-webkit-input-placeholder {
+.container--ingredients input::-webkit-input-placeholder, .container--ingredients button::-webkit-input-placeholder, .container--ingredients .dropdown-menu::-webkit-input-placeholder, .container--ingredients .col-4::-webkit-input-placeholder {
   color: white;
   font-size: 16px;
 }
 
-.container--ingredients > div:-ms-input-placeholder, .container--ingredients input:-ms-input-placeholder {
+.container--ingredients input:-ms-input-placeholder, .container--ingredients button:-ms-input-placeholder, .container--ingredients .dropdown-menu:-ms-input-placeholder, .container--ingredients .col-4:-ms-input-placeholder {
   color: white;
   font-size: 16px;
 }
 
-.container--ingredients > div::-ms-input-placeholder, .container--ingredients input::-ms-input-placeholder {
+.container--ingredients input::-ms-input-placeholder, .container--ingredients button::-ms-input-placeholder, .container--ingredients .dropdown-menu::-ms-input-placeholder, .container--ingredients .col-4::-ms-input-placeholder {
   color: white;
   font-size: 16px;
 }
 
-.container--ingredients > div::placeholder, .container--ingredients input::placeholder {
+.container--ingredients input::placeholder, .container--ingredients button::placeholder, .container--ingredients .dropdown-menu::placeholder, .container--ingredients .col-4::placeholder {
   color: white;
   font-size: 16px;
 }
 
-.container--ingredients > div:focus-visible, .container--ingredients input:focus-visible {
+.container--ingredients input:focus-visible, .container--ingredients button:focus-visible, .container--ingredients .dropdown-menu:focus-visible, .container--ingredients .col-4:focus-visible {
   outline-width: 0;
 }
 
-.container--ingredients > div a, .container--ingredients input a {
+.container--ingredients input a, .container--ingredients button a, .container--ingredients .dropdown-menu a, .container--ingredients .col-4 a {
   color: white;
 }
 
-.container--appareils > div, .container--appareils input {
+.container--appareils input {
+  border-radius: 5px 0 0 5px;
+}
+
+.container--appareils input, .container--appareils button, .container--appareils .dropdown-menu, .container--appareils .col-4 {
   background: #68D9A4;
-  width: 11rem;
   border: none;
-  border-radius: 5px;
   color: white;
-  padding-bottom: 7px;
-  margin-bottom: -7px;
 }
 
-.container--appareils > div::-webkit-input-placeholder, .container--appareils input::-webkit-input-placeholder {
+.container--appareils input::-webkit-input-placeholder, .container--appareils button::-webkit-input-placeholder, .container--appareils .dropdown-menu::-webkit-input-placeholder, .container--appareils .col-4::-webkit-input-placeholder {
   color: white;
   font-size: 16px;
 }
 
-.container--appareils > div:-ms-input-placeholder, .container--appareils input:-ms-input-placeholder {
+.container--appareils input:-ms-input-placeholder, .container--appareils button:-ms-input-placeholder, .container--appareils .dropdown-menu:-ms-input-placeholder, .container--appareils .col-4:-ms-input-placeholder {
   color: white;
   font-size: 16px;
 }
 
-.container--appareils > div::-ms-input-placeholder, .container--appareils input::-ms-input-placeholder {
+.container--appareils input::-ms-input-placeholder, .container--appareils button::-ms-input-placeholder, .container--appareils .dropdown-menu::-ms-input-placeholder, .container--appareils .col-4::-ms-input-placeholder {
   color: white;
   font-size: 16px;
 }
 
-.container--appareils > div::placeholder, .container--appareils input::placeholder {
+.container--appareils input::placeholder, .container--appareils button::placeholder, .container--appareils .dropdown-menu::placeholder, .container--appareils .col-4::placeholder {
   color: white;
   font-size: 16px;
 }
 
-.container--appareils > div:focus-visible, .container--appareils input:focus-visible {
+.container--appareils input:focus-visible, .container--appareils button:focus-visible, .container--appareils .dropdown-menu:focus-visible, .container--appareils .col-4:focus-visible {
   outline-width: 0;
 }
 
-.container--appareils > div a, .container--appareils input a {
+.container--appareils input a, .container--appareils button a, .container--appareils .dropdown-menu a, .container--appareils .col-4 a {
   color: white;
 }
 
-.container--ustensiles > div, .container--ustensiles input {
+.container--ustensiles input {
+  border-radius: 5px 0 0 5px;
+}
+
+.container--ustensiles input, .container--ustensiles button, .container--ustensiles .dropdown-menu, .container--ustensiles .col-4 {
   background: #ED6454;
-  width: 11rem;
   border: none;
-  border-radius: 5px;
   color: white;
-  padding-bottom: 7px;
-  margin-bottom: -7px;
 }
 
-.container--ustensiles > div::-webkit-input-placeholder, .container--ustensiles input::-webkit-input-placeholder {
+.container--ustensiles input::-webkit-input-placeholder, .container--ustensiles button::-webkit-input-placeholder, .container--ustensiles .dropdown-menu::-webkit-input-placeholder, .container--ustensiles .col-4::-webkit-input-placeholder {
   color: white;
   font-size: 16px;
 }
 
-.container--ustensiles > div:-ms-input-placeholder, .container--ustensiles input:-ms-input-placeholder {
+.container--ustensiles input:-ms-input-placeholder, .container--ustensiles button:-ms-input-placeholder, .container--ustensiles .dropdown-menu:-ms-input-placeholder, .container--ustensiles .col-4:-ms-input-placeholder {
   color: white;
   font-size: 16px;
 }
 
-.container--ustensiles > div::-ms-input-placeholder, .container--ustensiles input::-ms-input-placeholder {
+.container--ustensiles input::-ms-input-placeholder, .container--ustensiles button::-ms-input-placeholder, .container--ustensiles .dropdown-menu::-ms-input-placeholder, .container--ustensiles .col-4::-ms-input-placeholder {
   color: white;
   font-size: 16px;
 }
 
-.container--ustensiles > div::placeholder, .container--ustensiles input::placeholder {
+.container--ustensiles input::placeholder, .container--ustensiles button::placeholder, .container--ustensiles .dropdown-menu::placeholder, .container--ustensiles .col-4::placeholder {
   color: white;
   font-size: 16px;
 }
 
-.container--ustensiles > div:focus-visible, .container--ustensiles input:focus-visible {
+.container--ustensiles input:focus-visible, .container--ustensiles button:focus-visible, .container--ustensiles .dropdown-menu:focus-visible, .container--ustensiles .col-4:focus-visible {
   outline-width: 0;
 }
 
-.container--ustensiles > div a, .container--ustensiles input a {
+.container--ustensiles input a, .container--ustensiles button a, .container--ustensiles .dropdown-menu a, .container--ustensiles .col-4 a {
   color: white;
 }
 
@@ -276,5 +256,65 @@ section {
   width: 380px;
   height: 364px;
   margin-bottom: 3rem;
+}
+
+.dropdown {
+  display: block;
+  margin-right: 1.5rem;
+  margin-top: 1rem;
+}
+
+.dropdown .row {
+  height: 4rem;
+  margin: 0;
+}
+
+.dropdown .row--collapse {
+  width: 11rem;
+}
+
+.dropdown .row--collapse .fa-chevron-down {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.dropdown .show {
+  width: 41rem;
+}
+
+.dropdown .show .fa-chevron-down {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.dropdown-menu {
+  margin: 0;
+  border-radius: 0;
+}
+
+.dropdown-menu.show {
+  padding: 1rem 0;
+  margin-top: -5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-radius: 5px;
+}
+
+.col-4 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  white-space: nowrap;
+}
+
+.btn:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 /*# sourceMappingURL=main.css.map */
