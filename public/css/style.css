@@ -77,6 +77,18 @@ header h1 {
   color: #D04F4F;
 }
 
+.recipesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  width: 380px;
+  height: 364px;
+  margin-bottom: 3rem;
+}
+
 .rechercheContainer {
   display: flex;
   justify-content: center;
@@ -101,13 +113,13 @@ section {
   margin-bottom: 4rem;
 }
 
+.fa-chevron-down {
+  color: white;
+}
+
 .filtresContainer {
   display: flex;
   flex-wrap: wrap;
-}
-
-.fa-chevron-down {
-  color: white;
 }
 
 .container--ingredients input {
@@ -127,6 +139,9 @@ section {
 }
 .container--ingredients input a, .container--ingredients button a, .container--ingredients .dropdown-menu a, .container--ingredients .col-4 a {
   color: white;
+}
+.container--ingredients .show input::placeholder {
+  color: #98C0FB;
 }
 
 .container--appareils input {
@@ -167,18 +182,6 @@ section {
   color: white;
 }
 
-.recipesContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.card {
-  width: 380px;
-  height: 364px;
-  margin-bottom: 3rem;
-}
-
 .dropdown {
   display: block;
   margin-right: 1.5rem;
@@ -208,7 +211,7 @@ section {
 }
 .dropdown-menu.show {
   padding: 1rem 0;
-  margin-top: -5px;
+  margin-top: -7px;
   display: flex;
   flex-wrap: wrap;
   border-radius: 5px;

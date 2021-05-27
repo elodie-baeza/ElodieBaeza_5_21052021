@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
     <link rel="stylesheet" href="./public/css/style.css">
-    <script type="module" src="app.js"></script>
+    <script type="module" src="/main.js"></script>
 </head>
 <body>
     <header>
@@ -38,41 +38,11 @@
                 <div class="dropdown">
                     <div class="input-group container--ingredients" id="contIngredients">
                         <div class="row row--collapse">
-                            <input class="col" type="text" id="inputIngredients" name="ingredients" onkeyup="myFunction()" placeholder="Ingrédients">
-                            <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <input class="col" type="text" id="inputIngredients" name="ingredients" placeholder="Ingrédients">
+                            <button type="button" class="btn" id="btnIngredients" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-chevron-down"></i>
                             </button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="col-4 ingredient" href="#">Lait de coco</a>
-                                <a class="col-4 ingredient" href="#">Jus de citron</a>
-                                <a class="col-4 ingredient" href="#">Crème de coco</a>
-                                <a class="col-4 ingredient" href="#">Sucre</a>
-                                <a class="col-4 ingredient" href="#">Glaçons</a>
-                                <a class="col-4 ingredient" href="#">Thon rouge</a>
-                                <a class="col-4 ingredient" href="#">Concombre</a>
-                                <a class="col-4 ingredient" href="#">Tomate</a>
-                                <a class="col-4 ingredient" href="#">Carotte</a>
-                                <a class="col-4 ingredient" href="#">Citron Vert</a>
-                                <a class="col-4 ingredient" href="#">Poulet</a>
-                                <a class="col-4 ingredient" href="#">Coulis de tomate</a>
-                                <a class="col-4 ingredient" href="#">Oignon</a>
-                                <a class="col-4 ingredient" href="#">Poivron rouge</a>
-                                <a class="col-4 ingredient" href="#">Huile d'olive</a>
-                                <a class="col-4 ingredient" href="#">Riz blanc</a>
-                                <a class="col-4 ingredient" href="#">Thon en miettes</a>
-                                <a class="col-4 ingredient" href="#">Oeuf dur</a>
-                                <a class="col-4 ingredient" href="#">Maïs</a>
-                                <a class="col-4 ingredient" href="#">Vinaigrette</a>
-                                <a class="col-4 ingredient" href="#">Pâte feuilletée</a>
-                                <a class="col-4 ingredient" href="#">Crème fraiche</a>
-                                <a class="col-4 ingredient" href="#">Gruyère râpé</a>
-                                <a class="col-4 ingredient" href="#">Moutarde de Dijon</a>
-                                <a class="col-4 ingredient" href="#">Pomme</a>
-                                <a class="col-4 ingredient" href="#">Oeuf</a>
-                                <a class="col-4 ingredient" href="#">Sucre en poudre</a>
-                                <a class="col-4 ingredient" href="#">Chocolat au lait</a>
-                                <a class="col-4 ingredient" href="#">Crème liquide</a>
-                                <a class="col-4 ingredient" href="#">Beurre</a>
+                            <div class="dropdown-menu dropdown-menu-right" id="ingredientsListParent">
                             </div>
                         </div>
                     </div>
@@ -82,10 +52,10 @@
                     <div class="input-group container--appareils" id="contAppareils">
                         <div class="row row--collapse">
                             <input class="col" type="text" id="inputAppareils" name="appareils" placeholder="Appareils">
-                            <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="btn" id="btnAppareils" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-chevron-down"></i>
                             </button>
-                            <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-menu dropdown-menu-right" id="appareilsListParent">
                                 <a class="col-4 appareil" href="#">Saladier</a>
                                 <a class="col-4 appareil" href="#">Cocotte</a>
                                 <a class="col-4 appareil" href="#">Cuiseur de riz</a>
@@ -107,10 +77,10 @@
                     <div class="input-group container--ustensiles" id="contUstensiles">
                         <div class="row row--collapse">
                             <input class="col" type="text" id="inputUstensiles" name="ustensiles" placeholder="Ustensiles">
-                            <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="btn" id="btnUstensiles" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-chevron-down"></i>
                             </button>
-                            <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-menu dropdown-menu-right" id="ustensilesListParent">
                                 <a class="col-4 ustensile" href="#">Cuillère à soupe</a>
                                 <a class="col-4 ustensile" href="#">Verres</a>
                                 <a class="col-4 ustensile" href="#">Presse citron</a>
@@ -243,7 +213,5 @@
     <!-- jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-
-    <script src="searchIngredient.js"></script>
 </body>
 </html>

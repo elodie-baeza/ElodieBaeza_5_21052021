@@ -18,14 +18,14 @@
         .fa-chevron-down {
             transform: rotate(180deg);
             transition: 1s;
-        }        
+        }
     }
     &-menu {
         margin: 0;
         border-radius: 0;
         &.show {
             padding: 1rem 0;
-            margin-top: -5px;
+            margin-top: -7px;
             display: flex;
             flex-wrap: wrap;
             border-radius: 5px;
