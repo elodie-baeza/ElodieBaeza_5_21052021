@@ -1,6 +1,31 @@
-.rechercheContainer button {
+button {
     border: none;
     border-width: 0;
+}
+
+.badge {
+    font-size: 14px;
+    padding: 0 0.6rem 0 1.3rem;
+    margin-right: 1rem;
+    color: #ffffff;
+    &--ingredient {
+        background-color: #3282F7;
+    }
+    &--appareil {
+        background-color: #68D9A4;
+        ;
+    }
+    &--ustensile {
+        background-color: #ED6454;
+    }
+}
+
+.fa-times-circle:before {
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.rechercheContainer button {
     background: #E7E7E7;
     padding: 0 0.5rem;
     border-radius: 0 5px 5px 0;
