@@ -4,6 +4,6 @@ const refactorRecipes = recipes;
 
 console.table(refactorRecipes);
 
-// refactorRecipes.forEach(recipe => {
-    
-// });
+refactorRecipes.forEach(recipe => {
+    recipe.id
+});

@@ -1,1 +1,2 @@
-import Tag from './tag.js';
+import eventClickTags from './listener/evenListener.js';
+eventClickTags();

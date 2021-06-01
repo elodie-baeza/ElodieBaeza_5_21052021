@@ -1,16 +1,4 @@
-var mainSearch = document.getElementById('mainSearch');
-var mainSearchValue;
-
-mainSearch.addEventListener('keyup', function() {
-    mainSearchValue = strNoAccent(this.value);
-    searchParams = new SearchParams();
-    searchResult = new SearchService(params);
-    domService.buildFilters(searchParams, searchResult)
-    domService.buildResult(searchResult.recipies)
-});
-
-console.log(mainSearchValue);
-
+// var mainSearch = document.getElementById('mainSearch');
 
 //supprime les accents d'un texte
 function strNoAccent(a) {
@@ -35,5 +23,12 @@ class SearchParams {
     }
 }
 
-// let searchParams = new SearchParams(mainSearchValue, );
-// console.log(searchParams);
+function extractParams(parent, category) {
+    const array = Array.from(document.getElementById(parent).getElementsByClassName('selected'));
+    array.forEach(item => {
+        category.add(item.innerHTML);
+    });
+    return category;
+}
+
+export {SearchParams, extractParams, strNoAccent};
