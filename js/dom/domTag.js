@@ -1,4 +1,4 @@
-export default class Tag {
+export default class DomTag {
     constructor(name, category){
         this.name = name;
         this.category = category;

@@ -1,5 +1,5 @@
-import Tag from '../dom/domTag.js';
-import { SearchParams, extractParams, strNoAccent } from '../search/SearchParams.js';
+import DomTag from '../dom/DomTag.js';
+import { SearchParams, selectedTags } from '../search/searchParams.js';
 
 const tagsContainer = document.querySelector('.tagsContainer');
 var filtresAll = document.querySelectorAll('.filtresContainer a');
@@ -12,7 +12,7 @@ export default function eventClickTags(){
     filtresAll.forEach(filtre => filtre.addEventListener('click', function (event){
         const name = event.target.innerHTML;
         const category = event.target.classList[1];
-        const tag = new Tag(name, category);
+        const tag = new DomTag(name, category);
 
         if (event.target.classList.contains('selected') !== true) {
             tagsContainer.innerHTML += tag.render();
@@ -38,9 +38,9 @@ export default function eventClickTags(){
 
         var searchParams = new SearchParams(
             strNoAccent(mainSearch.value),
-            extractParams('ingredientsListParent', ingredients),
-            extractParams('appareilsListParent', appareils),
-            extractParams('ustensilesListParent', ustensiles)
+            selectedTags('ingredientsListParent', ingredients),
+            selectedTags('appareilsListParent', appareils),
+            selectedTags('ustensilesListParent', ustensiles)
         );
         console.log(searchParams);
     });

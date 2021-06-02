@@ -1,34 +1,25 @@
-// var mainSearch = document.getElementById('mainSearch');
 
-//supprime les accents d'un texte
-function strNoAccent(a) {
-    var b="áàâäãåçéèêëíïîìñóòôöõúùûüýÁÀÂÄÃÅÇÉÈÊËÍÏÎÌÑÓÒÔÖÕÚÙÛÜÝ",
-        c="aaaaaaceeeeiiiinooooouuuuyAAAAAACEEEEIIIINOOOOOUUUUY",
-        d="";
-    for(var i = 0, j = a.length; i < j; i++) {
-        //retourne la partie de la chaîne de caractères "a" comprise entre l'indice "i" de départ et 1 caractères après celui-ci.
-        var e = a.substr(i, 1);
-        //si "e" trouvé dans liste "b" alors retourne la partie de la liste "c" correspondante sans accent et ajoute la à "d" sinon ajoute "e" qui est donc un caractère absent de la liste "b"
-        d += (b.indexOf(e) !== -1) ? c.substr(b.indexOf(e), 1) : e;
-    }
-    return d;
-}
+
+var mainSearch = document.getElementById('mainSearch');
 
 class SearchParams {
-    constructor (mainSearch, ingredients, appareil, ustensiles) {
+    constructor (mainSearch, ingredients, appareils, ustensiles) {
         this.mainSearch = mainSearch;
         this.ingredients = ingredients;
-        this.appareil = appareil;
+        this.appareils = appareils;
         this.ustensiles = ustensiles;
     }
 }
 
-function extractParams(parent, category) {
-    const array = Array.from(document.getElementById(parent).getElementsByClassName('selected'));
+//retourne un tableau des éléments selectionnés pour une catégorie
+function selectedTags(categoryListParent, selectedItemsArray) {
+    //transforme la NodeList en Array, des <a> contenant la classe 'selected' dans la <div> parent
+    const array = Array.from(document.getElementById(categoryListParent).getElementsByClassName('selected'));
+    //parcour le tableau précédent et pour chaque element, stocke le texte de la balise <a> dans un nouveau tableau
     array.forEach(item => {
-        category.add(item.innerHTML);
+        selectedItemsArray.add(item.innerHTML);
     });
-    return category;
+    return selectedItemsArray;
 }
 
-export {SearchParams, extractParams, strNoAccent};
+export {SearchParams, selectedTags};
