@@ -1,4 +1,8 @@
 # ElodieBaeza_5_21052021
 [githubpage](https://elodie-baeza.github.io/ElodieBaeza_5_21052021/)
-npm install
-npm start
+
+***
+local web server
+
+$ npm install
+$ npm start
