@@ -1,8 +1,11 @@
 # ElodieBaeza_5_21052021
-[githubpage](https://elodie-baeza.github.io/ElodieBaeza_5_21052021/)
-
+## [githubpage](https://elodie-baeza.github.io/ElodieBaeza_5_21052021/)
 ***
-local web server
+## shell
+> npm install  
+> npm start  
+***
+## Prérequis
 
-$ npm install
-$ npm start
+> installation de sass  
+> installation de npm  

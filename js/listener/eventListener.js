@@ -1,5 +1,8 @@
-import DomTag from '../dom/DomTag.js';
-import { SearchParams, selectedTags } from '../search/searchParams.js';
+import { transformSentence } from '../utils/transformSentence.js';
+import DomTag from '../dom/selectTags/DomTag.js';
+import SearchParams from '../search/searchParams.js';
+
+
 
 const tagsContainer = document.querySelector('.tagsContainer');
 var filtresAll = document.querySelectorAll('.filtresContainer a');
@@ -36,12 +39,11 @@ export default function eventClickTags(){
     document.getElementById('searchBtn').addEventListener('click', function (){
         var mainSearch = document.getElementById('mainSearch');
 
-        var searchParams = new SearchParams(
-            strNoAccent(mainSearch.value),
-            selectedTags('ingredientsListParent', ingredients),
-            selectedTags('appareilsListParent', appareils),
-            selectedTags('ustensilesListParent', ustensiles)
-        );
+        var searchParams = new SearchParams();
+        transformSentence(mainSearch.value),
+        searchParams.getIngredientsSelected();
+        searchParams.getAppareilsSelected();
+        searchParams.getUstensilesSelected();
         console.log(searchParams);
     });
 

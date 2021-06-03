@@ -1,25 +1,41 @@
-
-
 var mainSearch = document.getElementById('mainSearch');
 
-class SearchParams {
-    constructor (mainSearch, ingredients, appareils, ustensiles) {
+export default class SearchParams {
+    constructor () {
         this.mainSearch = mainSearch;
-        this.ingredients = ingredients;
-        this.appareils = appareils;
-        this.ustensiles = ustensiles;
+        this.tagsIngredients = this.getIngredientsSelected();
+        this.tagsAppareils = this.getAppareilsSelected();
+        this.tagsUstensiles = this.getUstensilesSelected();
+    }
+    //retourne un tableau des éléments selectionnés pour une catégorie
+    getIngredientsSelected() {
+        const ingredientsSelected = new Map();
+        // this.tagsIngredients.clear();
+        //parcour le tableau précédent et pour chaque element, stocke le texte de la balise <a> dans un nouveau tableau
+        const ingredientsSelectedDom = Array.from(document.querySelectorAll('#ingredientsListParent .selected'))
+        ingredientsSelectedDom.forEach( element => {
+            ingredientsSelected.set(element.innerHTML);
+        });
+        return ingredientsSelected;
+    }
+
+    getAppareilsSelected() {
+        const appareilsSelected = new Map();
+        // this.tagsAppareils.clear();
+        const appareilsSelectedDom = Array.from(document.querySelectorAll('#appareilsListParent .selected'))
+        appareilsSelectedDom.forEach( element => {
+            appareilsSelected.set(element.innerHTML);
+        });
+        return appareilsSelected;
+    }
+
+    getUstensilesSelected() {
+        const ustensilesSelected = new Map();
+        // this.tagsUstensiles.clear();
+        const ustensilesSelectedDom = Array.from(document.querySelectorAll('#ustensilesListParent .selected'))
+        ustensilesSelectedDom.forEach( element => {
+            ustensilesSelected.set(element.innerHTML);
+        });
+        return ustensilesSelected;
     }
 }
-
-//retourne un tableau des éléments selectionnés pour une catégorie
-function selectedTags(categoryListParent, selectedItemsArray) {
-    //transforme la NodeList en Array, des <a> contenant la classe 'selected' dans la <div> parent
-    const array = Array.from(document.getElementById(categoryListParent).getElementsByClassName('selected'));
-    //parcour le tableau précédent et pour chaque element, stocke le texte de la balise <a> dans un nouveau tableau
-    array.forEach(item => {
-        selectedItemsArray.add(item.innerHTML);
-    });
-    return selectedItemsArray;
-}
-
-export {SearchParams, selectedTags};
