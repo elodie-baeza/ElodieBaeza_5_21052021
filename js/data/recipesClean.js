@@ -1,5 +1,5 @@
 import { recipes } from './recipes.js';
-import { transformSentence } from './transformSentence.js';
+import { transformSentence } from '../utils/transformSentence.js';
 
 // test:
 // let toto = "(Limonadé, de dans l'coco à mémé)"
@@ -26,5 +26,5 @@ recipes.forEach(recipe => {
 
 //convertie le tableau de recette en objet Map
 let newRecipesArray = Object.entries(recipes)
-export const remodelRecipes = new Map(newRecipesArray)
+export const recipesClean = new Map(newRecipesArray)
 // console.log(recipesIngredientMap)
