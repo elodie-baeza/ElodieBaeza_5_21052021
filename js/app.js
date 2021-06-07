@@ -9,7 +9,6 @@ import { recipes } from './data/recipes.js';
 import DomRecipes from './dom/recipes/domRecipes.js';
 import RecipesClean from './data/RecipesClean.js';
 
-eventClickTags();
 
 const domRecipes = new DomRecipes(searchResult2)
 domRecipes.builtRecipes()
@@ -22,6 +21,8 @@ console.log(DomServiceSearchResult2.builtFiltreAppareils());
 
 const DomServiceSearchResult3 = new SelectUstensiles(searchResult2);
 console.log(DomServiceSearchResult3.builtFiltreUstensiles());
+
+eventClickTags();
 
 const recipesClean = new RecipesClean()
 recipesClean.clean(recipes)

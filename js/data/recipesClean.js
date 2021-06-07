@@ -55,31 +55,31 @@ export default class RecipesClean {
         }
     }
 
-    allIngredientsList() {
-        const allIngredientsList = new Set()
-        this.recipesClean.forEach(recipe => {
-            recipe.ingredients.forEach(element => {
-                allIngredientsList.add(element.ingredient);
-            })
-        })
-        return allIngredientsList
-    }
+    // allIngredientsList() {
+    //     const allIngredientsList = new Set()
+    //     this.recipesClean.forEach(recipe => {
+    //         recipe.ingredients.forEach(element => {
+    //             allIngredientsList.add(element.ingredient);
+    //         })
+    //     })
+    //     return allIngredientsList
+    // }
 
-    allAppareilsList() {
-        const allAppareilsList = new Set()
-        this.recipesClean.forEach(element => {
-            allAppareilsList.add(element.appliance);
-        })
-        return allAppareilsList
-    }
+    // allAppareilsList() {
+    //     const allAppareilsList = new Set()
+    //     this.recipesClean.forEach(element => {
+    //         allAppareilsList.add(element.appliance);
+    //     })
+    //     return allAppareilsList
+    // }
 
-    allUstensilesList() {
-        const allUstensilesList = new Set()
-        this.recipesClean.forEach(recipe => {
-            recipe.ustensils.forEach(element => {
-                allUstensilesList.add(element);
-            })
-        })
-        return allUstensilesList
-    }
+    // allUstensilesList() {
+    //     const allUstensilesList = new Set()
+    //     this.recipesClean.forEach(recipe => {
+    //         recipe.ustensils.forEach(element => {
+    //             allUstensilesList.add(element);
+    //         })
+    //     })
+    //     return allUstensilesList
+    // }
 }

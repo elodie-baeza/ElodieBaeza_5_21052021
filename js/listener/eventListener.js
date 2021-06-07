@@ -2,10 +2,13 @@ import { transformSentence } from '../utils/transformSentence.js';
 import DomTag from '../dom/selectTags/DomTag.js';
 import SearchParams from '../search/searchParams.js';
 
-const tagsContainer = document.querySelector('.tagsContainer');
-var filtresAll = document.querySelectorAll('.filtresContainer a');
+// const tagsContainer = document.querySelector('.tagsContainer');
+// var filtresAll = document.querySelectorAll('.filtresContainer a');
 
 export default function eventClickTags(){
+    const tagsContainer = document.querySelector('.tagsContainer');
+    var filtresAll = document.querySelectorAll('.filtresContainer a');
+
     
     filtresAll.forEach(filtre => filtre.addEventListener('click', function (event){
         const name = event.target.innerHTML;
