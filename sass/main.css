@@ -129,8 +129,13 @@ header h1 {
 
 .card {
   width: 380px;
-  height: 364px;
   margin-bottom: 3rem;
+}
+
+.recipesDescription {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 10vh;
 }
 
 .rechercheContainer {
@@ -358,6 +363,8 @@ section {
   padding-top: 5px;
   padding-bottom: 5px;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .btn:focus {

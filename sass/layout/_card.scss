@@ -6,6 +6,12 @@
 
 .card {
     width: 380px;
-    height: 364px;
+    // height: 364px;
     margin-bottom: 3rem;
+}
+
+.recipesDescription {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 10vh;
 }

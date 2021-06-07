@@ -2,16 +2,11 @@ import { transformSentence } from '../utils/transformSentence.js';
 import DomTag from '../dom/selectTags/DomTag.js';
 import SearchParams from '../search/searchParams.js';
 
-
-
 const tagsContainer = document.querySelector('.tagsContainer');
 var filtresAll = document.querySelectorAll('.filtresContainer a');
-const ingredients = new Set;
-const appareils = new Set;
-const ustensiles = new Set;
 
 export default function eventClickTags(){
-
+    
     filtresAll.forEach(filtre => filtre.addEventListener('click', function (event){
         const name = event.target.innerHTML;
         const category = event.target.classList[1];

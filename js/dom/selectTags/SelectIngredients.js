@@ -6,12 +6,19 @@ export default class SelectIngredients {
         return this.result;
     }
     builtFiltreIngredients() {
+        const list = new Set();
+        this.result.searchResultRecipes.forEach(recipe => {
+            recipe.ingredients.forEach(element => {
+               list.add(element.ingredient);
+            });
+        })
+
         let html = '';
-        console.log(this.result);
-        this.result.forEach(ingredient => {
-            html += `<a class="col-4 ingredient" href="#">${ingredient}</a>`;
+        list.forEach(element => {
+            html += `<a class="col-4 ingredient" href="#">${element}</a>`;
         });
         let listSelect = document.getElementById('ingredientsListParent');
         listSelect.insertAdjacentHTML('beforeend',html);
     }
 }
+

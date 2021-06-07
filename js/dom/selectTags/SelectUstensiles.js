@@ -6,10 +6,16 @@ export default class SelectUstensiles {
         return this.result;
     }
     builtFiltreUstensiles() {
+        const list = new Set();
+        this.result.searchResultRecipes.forEach(recipe => {
+            recipe.ustensils.forEach(element => {
+               list.add(element);
+            });
+        })
+
         let html = '';
-        console.log(this.result);
-        this.result.forEach(ustensile => {
-            html += `<a class="col-4 ustensile" href="#">${ustensile}</a>`;
+        list.forEach(element => {
+            html += `<a class="col-4 ustensile" href="#">${element}</a>`;
         });
         let listSelect = document.getElementById('ustensilesListParent');
         listSelect.insertAdjacentHTML('beforeend',html);
