@@ -1,10 +1,9 @@
-
+//filtre la liste de choix suivant le texte saisi dans input
 export default function searchFilter(input, containerList) {
-    // Declare variables
     var txtValue;
     var filter = input.value.toUpperCase();
     var elementOfList = containerList.getElementsByTagName('a');
-    // Loop through all list items, and hide those who don't match the search query
+    // boucle sur chaque element du filtre et le cache si il est différent de l'input
     for (let i = 0; i < elementOfList.length; i++) {
         txtValue = elementOfList[i].textContent || elementOfList[i].innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {

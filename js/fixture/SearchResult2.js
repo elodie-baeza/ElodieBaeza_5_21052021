@@ -1,6 +1,7 @@
 import { recipes } from '../data/recipes.js';
 import SearchResult from '../search/SearchResult.js';
 
+//résultat si aucun input
 export const searchResult2 = new SearchResult([
     recipes[0],
     recipes[1],

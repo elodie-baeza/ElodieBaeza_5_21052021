@@ -29,3 +29,4 @@ eventKeyupInput();
 
 const recipesClean = new RecipesClean()
 recipesClean.clean(recipes)
+console.log(recipesClean)

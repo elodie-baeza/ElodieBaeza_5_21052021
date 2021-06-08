@@ -12,15 +12,16 @@ export default function eventClickTags(){
     const inputAppareils = document.getElementById('inputAppareils');
     const inputUstensiles = document.getElementById('inputUstensiles');
 
-    
+    //au click sur un filtre ajoute le tag
     filtresAll.forEach(filtre => filtre.addEventListener('click', function (event){
         const name = event.target.innerHTML;
         const category = event.target.classList[1];
         const tag = new DomTag(name, category);
-
+        //affiche le tag de l'élément
         if (event.target.classList.contains('selected') !== true) {
             tagsContainer.innerHTML += tag.render();
         }
+        //ajoute la class "selected" dans le DOM de l'élément
         event.target.classList.add('selected');
 
         //réinitialise tous les champs de saisie des filtres
@@ -29,6 +30,7 @@ export default function eventClickTags(){
         inputUstensiles.value = ''
     }));
 
+    //au click sur un tag, ferme le tag et enlève la class selected dans le DOM
     document.querySelector('.tagsContainer').addEventListener('click', function (event){
         //récupère le texte du tag à fermer
         const txtTagToRemove = event.target.parentNode.querySelector('span').innerHTML;
@@ -42,6 +44,7 @@ export default function eventClickTags(){
         event.target.parentNode.remove();
     });
 
+    //au click sur le bouton principal de recherche, récupère dans searchParams tous les inputs de l'utilisateur
     document.getElementById('searchBtn').addEventListener('click', function (){
         var mainSearch = document.getElementById('mainSearch').value;
 

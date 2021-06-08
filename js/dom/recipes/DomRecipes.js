@@ -1,5 +1,6 @@
 import { recipes } from "../../data/recipes.js";
 
+//affiche les recettes dans le DOM
 export default class DomRecipes {
     constructor(result) {
         this.result = result;
@@ -7,11 +8,12 @@ export default class DomRecipes {
     getResult() {
         return this.result;
     }
+    //affiche toute les recettes au chargement de la page
     init() {
         this.builtRecipes(recipes)
     }
+    //affiche les recettes dans le DOM suivant résultat de recherche
     builtRecipes(searchResult) {
-        // this.result.searchResultRecipes.forEach(recipe => {
         searchResult.forEach(recipe => {
             let html = '';
             html += 
@@ -33,9 +35,10 @@ export default class DomRecipes {
                 </div>
             </div>`;
             document.querySelector('.recipesContainer').insertAdjacentHTML('beforeend',html);
-
+            //affiche ingredients-quantité-unité dans le DOM de chaque recette
             recipe.ingredients.forEach(element => {
                 let unit = '';
+                //affiche unité si renseignée
                 if (element.unit != undefined) {
                     unit = element.unit
                 }
