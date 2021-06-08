@@ -1,6 +1,6 @@
 // import { searchParams } from '../app.js';
 import DomTag from '../dom/selectTags/DomTag.js';
-import SearchParams from '../search/searchParams.js';
+import SearchParams from '../search/SearchParams.js';
 
 export function eventClickFilter() {
     const tagsContainer = document.querySelector('.tagsContainer');
