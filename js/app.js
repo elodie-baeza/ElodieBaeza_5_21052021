@@ -6,7 +6,7 @@ import SelectIngredients from './dom/selectTags/SelectIngredients.js';
 import SelectAppareils from './dom/selectTags/SelectAppareils.js';
 import SelectUstensiles from './dom/selectTags/SelectUstensiles.js';
 import { recipes } from './data/recipes.js';
-import DomRecipes from './dom/recipes/domRecipes.js';
+import DomRecipes from './dom/recipes/DomRecipes.js';
 import RecipesClean from './data/RecipesClean.js';
 // import SearchService from './search/SearchService.js';
 
