@@ -218,6 +218,11 @@ section {
   color: white;
 }
 
+.container--ingredients input .selected, .container--ingredients button .selected, .container--ingredients .dropdown-menu .selected, .container--ingredients .col-4 .selected {
+  text-decoration: line-through;
+  color: lightgrey;
+}
+
 .container--ingredients .show input::-webkit-input-placeholder {
   color: #98C0FB;
 }
@@ -272,6 +277,11 @@ section {
   color: white;
 }
 
+.container--appareils input .selected, .container--appareils button .selected, .container--appareils .dropdown-menu .selected, .container--appareils .col-4 .selected {
+  text-decoration: line-through;
+  color: lightgrey;
+}
+
 .container--ustensiles input {
   border-radius: 5px 0 0 5px;
 }
@@ -308,6 +318,11 @@ section {
 
 .container--ustensiles input a, .container--ustensiles button a, .container--ustensiles .dropdown-menu a, .container--ustensiles .col-4 a {
   color: white;
+}
+
+.container--ustensiles input .selected, .container--ustensiles button .selected, .container--ustensiles .dropdown-menu .selected, .container--ustensiles .col-4 .selected {
+  text-decoration: line-through;
+  color: lightgrey;
 }
 
 .dropdown {

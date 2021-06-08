@@ -1,3 +1,5 @@
+import { recipes } from "../../data/recipes.js";
+
 export default class SelectIngredients {
     constructor(result) {
         this.result = result;
@@ -5,9 +7,12 @@ export default class SelectIngredients {
     getResult() {
         return this.result;
     }
-    builtFiltreIngredients() {
+    init() {
+        this.builtFiltreIngredients(recipes)
+    }
+    builtFiltreIngredients(searchResult) {
         const list = new Set();
-        this.result.searchResultRecipes.forEach(recipe => {
+        searchResult.forEach(recipe => {
             recipe.ingredients.forEach(element => {
                list.add(element.ingredient);
             });
@@ -19,6 +24,12 @@ export default class SelectIngredients {
         });
         let listSelect = document.getElementById('ingredientsListParent');
         listSelect.insertAdjacentHTML('beforeend',html);
+    }
+    clear() {
+        const aHtmlList = document.querySelectorAll('#ingredientsListParent a')
+        aHtmlList.forEach(element => {
+            element.remove()
+        });
     }
 }
 

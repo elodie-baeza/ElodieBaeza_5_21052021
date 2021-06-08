@@ -1,3 +1,6 @@
+import { recipes } from "../../data/recipes.js";
+import { searchResult2 } from "../../fixture/searchResult2.js";
+
 export default class SelectUstensiles {
     constructor(result) {
         this.result = result;
@@ -5,9 +8,12 @@ export default class SelectUstensiles {
     getResult() {
         return this.result;
     }
-    builtFiltreUstensiles() {
+    init() {
+        this.builtFiltreUstensiles(recipes)
+    }
+    builtFiltreUstensiles(searchResult) {
         const list = new Set();
-        this.result.searchResultRecipes.forEach(recipe => {
+        searchResult.forEach(recipe => {
             recipe.ustensils.forEach(element => {
                list.add(element);
             });
@@ -19,5 +25,11 @@ export default class SelectUstensiles {
         });
         let listSelect = document.getElementById('ustensilesListParent');
         listSelect.insertAdjacentHTML('beforeend',html);
+    }
+    clear() {
+        const aHtmlList = document.querySelectorAll('#ustensilesListParent a')
+        aHtmlList.forEach(element => {
+            element.remove()
+        });
     }
 }

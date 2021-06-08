@@ -1,5 +1,6 @@
 // import { recipesClean } from './data/recipesClean.js';
-import eventClickTags from './listener/eventListener.js';
+import eventClickTags from './listener/eventClickTags.js';
+import eventKeyupInput from './listener/eventKeyupInput.js';
 import { searchResult1 } from './fixture/searchResult1.js';
 import { searchResult2 } from './fixture/searchResult2.js';
 import SelectIngredients from './dom/selectTags/SelectIngredients.js';
@@ -11,18 +12,20 @@ import RecipesClean from './data/RecipesClean.js';
 
 
 const domRecipes = new DomRecipes(searchResult2)
-domRecipes.builtRecipes()
+domRecipes.init()
+// domRecipes.builtRecipes(searchResult2.searchResultRecipes)
 
-const DomServiceSearchResult1 = new SelectIngredients(searchResult2);
-console.log(DomServiceSearchResult1.builtFiltreIngredients());
+const DomServiceIngredients = new SelectIngredients(searchResult2);
+DomServiceIngredients.init();
 
-const DomServiceSearchResult2 = new SelectAppareils(searchResult2);
-console.log(DomServiceSearchResult2.builtFiltreAppareils());
+const DomServiceAppareils = new SelectAppareils(searchResult2);
+DomServiceAppareils.init();
 
-const DomServiceSearchResult3 = new SelectUstensiles(searchResult2);
-console.log(DomServiceSearchResult3.builtFiltreUstensiles());
+const DomServiceUstensiles = new SelectUstensiles(searchResult2);
+DomServiceUstensiles.init();
 
 eventClickTags();
+eventKeyupInput();
 
 const recipesClean = new RecipesClean()
 recipesClean.clean(recipes)

@@ -1,3 +1,6 @@
+import { recipes } from "../../data/recipes.js";
+import { searchResult2 } from "../../fixture/searchResult2.js";
+
 export default class SelectAppareils {
     constructor(result) {
         this.result = result;
@@ -5,11 +8,14 @@ export default class SelectAppareils {
     getResult() {
         return this.result;
     }
-    builtFiltreAppareils() {
+    init() {
+        this.builtFiltreAppareils(recipes)
+    }
+    builtFiltreAppareils(searchResult) {
         const list = new Set();
-        this.result.searchResultRecipes.forEach(recipe => {
-               list.add(recipe.appliance);
-            });
+        searchResult.forEach(recipe => {
+            list.add(recipe.appliance);
+        });
 
         let html = '';
         list.forEach(element => {
@@ -17,5 +23,11 @@ export default class SelectAppareils {
         });
         let listSelect = document.getElementById('appareilsListParent');
         listSelect.insertAdjacentHTML('beforeend',html);
+    }
+    clear() {
+        const aHtmlList = document.querySelectorAll('#appareilsListParent a')
+        aHtmlList.forEach(element => {
+            element.remove()
+        });
     }
 }

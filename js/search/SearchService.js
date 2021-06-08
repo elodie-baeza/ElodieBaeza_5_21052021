@@ -10,7 +10,7 @@ Class SearchService()
                 'tagIngredients' = [];
                 'tagAppareils' = [];
             }
-            foreach (RECIPIES_BDD as recipie) {
+            foreach (RECIPES_BDD as recipe) {
                 searchResult.ingredient[] = recipie.ingredients;
                 searchResult.appareils[] = recipie.appareils;
                 searchResult.ustensils[] = recipie.ustensils;

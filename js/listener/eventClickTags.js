@@ -35,10 +35,9 @@ export default function eventClickTags(){
     });
 
     document.getElementById('searchBtn').addEventListener('click', function (){
-        var mainSearch = document.getElementById('mainSearch');
+        var mainSearch = document.getElementById('mainSearch').value;
 
-        var searchParams = new SearchParams();
-        transformSentence(mainSearch.value),
+        var searchParams = new SearchParams(mainSearch);
         searchParams.getIngredientsSelected();
         searchParams.getAppareilsSelected();
         searchParams.getUstensilesSelected();

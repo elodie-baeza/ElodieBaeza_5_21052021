@@ -1,7 +1,7 @@
 var mainSearch = document.getElementById('mainSearch');
 
 export default class SearchParams {
-    constructor () {
+    constructor (mainSearch) {
         this.mainSearch = mainSearch;
         this.tagsIngredients = this.getIngredientsSelected();
         this.tagsAppareils = this.getAppareilsSelected();

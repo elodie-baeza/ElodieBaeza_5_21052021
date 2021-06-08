@@ -7,9 +7,12 @@ export default class DomRecipes {
     getResult() {
         return this.result;
     }
-    builtRecipes() {
-        
-        this.result.searchResultRecipes.forEach(recipe => {
+    init() {
+        this.builtRecipes(recipes)
+    }
+    builtRecipes(searchResult) {
+        // this.result.searchResultRecipes.forEach(recipe => {
+        searchResult.forEach(recipe => {
             let html = '';
             html += 
             `<div class="card" id=${recipe.id}>
@@ -42,5 +45,4 @@ export default class DomRecipes {
             })
         });
     }
-
 }
