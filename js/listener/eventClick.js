@@ -1,11 +1,8 @@
-import { transformSentence } from '../utils/transformSentence.js';
+// import { searchParams } from '../app.js';
 import DomTag from '../dom/selectTags/DomTag.js';
 import SearchParams from '../search/searchParams.js';
 
-// const tagsContainer = document.querySelector('.tagsContainer');
-// var filtresAll = document.querySelectorAll('.filtresContainer a');
-
-export default function eventClickTags(){
+export function eventClickFilter() {
     const tagsContainer = document.querySelector('.tagsContainer');
     var filtresAll = document.querySelectorAll('.filtresContainer a');
     const inputIngredients = document.getElementById('inputIngredients');
@@ -29,7 +26,9 @@ export default function eventClickTags(){
         inputAppareils.value = ''
         inputUstensiles.value = ''
     }));
+}
 
+export function eventClickTags() {
     //au click sur un tag, ferme le tag et enlève la class selected dans le DOM
     document.querySelector('.tagsContainer').addEventListener('click', function (event){
         //récupère le texte du tag à fermer
@@ -43,16 +42,12 @@ export default function eventClickTags(){
         //ferme le tag = supprime div 'badge' dans html
         event.target.parentNode.remove();
     });
+}
 
-    //au click sur le bouton principal de recherche, récupère dans searchParams tous les inputs de l'utilisateur
+export function eventClickSearchBtn() {
+    //au click sur le bouton principal de recherche, récupère dans searchParams tous les inputs de l'utilisateur 
     document.getElementById('searchBtn').addEventListener('click', function (){
-        var mainSearch = document.getElementById('mainSearch').value;
-
-        var searchParams = new SearchParams(mainSearch);
-        searchParams.getIngredientsSelected();
-        searchParams.getAppareilsSelected();
-        searchParams.getUstensilesSelected();
-        console.log(searchParams);
+        var searchParams = new SearchParams();
+        console.log(searchParams)
     });
-
 }

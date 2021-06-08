@@ -21,3 +21,15 @@
 //     }
 // }
 // ***************************************
+import { eventClickSearchBtn } from "../listener/eventClick.js"
+
+export default class SearchService {
+
+    constructor(searchParams) {
+        this.searchParams = searchParams
+        this.searchResult = []
+    }
+    searchWithoutparams() {
+        console.log(this.searchParams)
+    }
+}

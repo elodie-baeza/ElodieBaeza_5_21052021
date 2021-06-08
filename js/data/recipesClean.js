@@ -43,7 +43,6 @@ export default class RecipesClean {
             }
             //transforme description en table de mots nettoyés
             this.recipesClean[i].description = transformSentence(recipes[i].description);
-            
             //transforme appliance en table de mots nettoyés
             transformSentence(recipes[i].appliance).forEach(word => {
                 this.recipesClean[i].appliance.push(word);

@@ -1,17 +1,22 @@
-var mainSearch = document.getElementById('mainSearch');
-
 export default class SearchParams {
-    constructor (mainSearch) {
-        this.mainSearch = mainSearch;
+    constructor () {
+        this.mainSearch = this.getMainInput();
         this.tagsIngredients = this.getIngredientsSelected();
         this.tagsAppareils = this.getAppareilsSelected();
         this.tagsUstensiles = this.getUstensilesSelected();
     }
+    //
+    getMainInput() {
+        var mainInput = document.getElementById('mainSearch').value;
+        return mainInput
+    }
+
     //retourne un tableau des éléments selectionnés pour une catégorie
     getIngredientsSelected() {
         const ingredientsSelected = new Map();
         // this.tagsIngredients.clear();
-        //parcour le tableau précédent et pour chaque element, stocke le texte de la balise <a> dans un nouveau tableau
+
+        //boucle sur le tableau précédent et pour chaque element, stocke le texte de la balise <a> dans un nouveau tableau
         const ingredientsSelectedDom = Array.from(document.querySelectorAll('#ingredientsListParent .selected'))
         ingredientsSelectedDom.forEach( element => {
             ingredientsSelected.set(element.innerHTML);
