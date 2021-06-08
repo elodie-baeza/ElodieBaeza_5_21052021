@@ -8,6 +8,9 @@ import SearchParams from '../search/searchParams.js';
 export default function eventClickTags(){
     const tagsContainer = document.querySelector('.tagsContainer');
     var filtresAll = document.querySelectorAll('.filtresContainer a');
+    const inputIngredients = document.getElementById('inputIngredients');
+    const inputAppareils = document.getElementById('inputAppareils');
+    const inputUstensiles = document.getElementById('inputUstensiles');
 
     
     filtresAll.forEach(filtre => filtre.addEventListener('click', function (event){
@@ -19,6 +22,11 @@ export default function eventClickTags(){
             tagsContainer.innerHTML += tag.render();
         }
         event.target.classList.add('selected');
+
+        //réinitialise tous les champs de saisie des filtres
+        inputIngredients.value = ''
+        inputAppareils.value = ''
+        inputUstensiles.value = ''
     }));
 
     document.querySelector('.tagsContainer').addEventListener('click', function (event){
