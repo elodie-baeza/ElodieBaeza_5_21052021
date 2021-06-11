@@ -3,4 +3,7 @@ import SearchResult from '../search/SearchResult.js';
 
 export const searchResult1 = new SearchResult(
     [recipes[2],recipes[10]],
+    ['lait de coco', 'beurre', 'fraises'],
+    ['blender'],
+    ['fouet','cocotte']
 );
