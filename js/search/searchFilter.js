@@ -4,12 +4,14 @@ export default function searchFilter(input, containerList) {
     var filter = input.value.toUpperCase();
     var elementOfList = containerList.getElementsByTagName('a');
     // boucle sur chaque element du filtre et le cache si il est différent de l'input
-    for (let i = 0; i < elementOfList.length; i++) {
-        txtValue = elementOfList[i].textContent || elementOfList[i].innerText;
+    Array.prototype.forEach.call(elementOfList, element => {
+        txtValue = element.textContent || element.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        elementOfList[i].style.display = "";
+        // element.style.display = "";
+        element.classList.remove('hide')
         } else {
-        elementOfList[i].style.display = "none";
+        // element.style.display = "none";
+        element.classList.add('hide')
         }
-    }
+    });
 }
