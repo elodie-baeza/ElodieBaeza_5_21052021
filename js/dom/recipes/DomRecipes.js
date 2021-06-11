@@ -13,7 +13,7 @@ export default class DomRecipes {
         this.builtRecipes(recipes)
     }
     //affiche les recettes dans le DOM suivant résultat de recherche
-    builtRecipes(searchResult) {
+    static builtRecipes(searchResult) {
         searchResult.forEach(recipe => {
             let html = '';
             html += 

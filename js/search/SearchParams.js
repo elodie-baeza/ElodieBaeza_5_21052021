@@ -1,16 +1,17 @@
+import { transformSentence } from "../utils/transformSentence.js";
+
 export default class SearchParams {
     constructor () {
-        this.mainSearch = this.getMainInput();
-        this.tagsIngredients = this.getIngredientsSelected();
-        this.tagsAppareils = this.getAppareilsSelected();
-        this.tagsUstensiles = this.getUstensilesSelected();
+        this.mainInput = this.getMainInput();
+        this.ingredientsSelected = this.getIngredientsSelected();
+        this.appareilsSelected = this.getAppareilsSelected();
+        this.ustensilesSelected = this.getUstensilesSelected();
     }
     //
     getMainInput() {
-        var mainInput = document.getElementById('mainSearch').value;
+        var mainInput = transformSentence(document.getElementById('mainSearch').value);
         return mainInput
     }
-
     //retourne un tableau des éléments selectionnés pour une catégorie
     getIngredientsSelected() {
         const ingredientsSelected = new Map();
@@ -23,7 +24,6 @@ export default class SearchParams {
         });
         return ingredientsSelected;
     }
-
     getAppareilsSelected() {
         const appareilsSelected = new Map();
         // this.tagsAppareils.clear();
@@ -33,7 +33,6 @@ export default class SearchParams {
         });
         return appareilsSelected;
     }
-
     getUstensilesSelected() {
         const ustensilesSelected = new Map();
         // this.tagsUstensiles.clear();
