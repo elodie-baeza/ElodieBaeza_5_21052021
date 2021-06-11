@@ -177,6 +177,9 @@ section {
   text-decoration: line-through;
   color: lightgrey;
 }
+.container--ingredients a.hide {
+  display: none;
+}
 .container--ingredients .show input::placeholder {
   color: #98C0FB;
 }

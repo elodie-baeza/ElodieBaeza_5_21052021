@@ -1,4 +1,3 @@
-import { titi } from '../app.js';
 import DomTag from '../dom/selectTags/DomTag.js';
 import SearchService from '../search/SearchService.js';
 
@@ -46,6 +45,6 @@ export function eventClickTags() {
 
 export function eventClickSearchBtn() {
     //au click sur le bouton principal de recherche, récupère dans searchParams tous les inputs de l'utilisateur 
-    // document.getElementById('searchBtn').addEventListener('click', SearchService.mainInputSearch)
-    document.getElementById('searchBtn').addEventListener('click', () => {SearchService.mainInputSearch; titi()})
+    document.getElementById('searchBtn').addEventListener('click', SearchService.mainInputSearch)
+    // document.getElementById('searchBtn').addEventListener('click', () => {SearchService.mainInputSearch; titi()})
 }

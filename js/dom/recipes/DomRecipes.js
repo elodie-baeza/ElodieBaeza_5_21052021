@@ -8,13 +8,9 @@ export default class DomRecipes {
     getResult() {
         return this.result;
     }
-    //affiche toute les recettes au chargement de la page
-    init() {
-        this.builtRecipes(recipes)
-    }
     //affiche les recettes dans le DOM suivant résultat de recherche
-    static builtRecipes(searchResult) {
-        searchResult.forEach(recipe => {
+    builtRecipes() {
+        this.result.forEach(recipe => {
             let html = '';
             html += 
             `<div class="card" id=${recipe.id}>

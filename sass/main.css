@@ -223,6 +223,10 @@ section {
   color: lightgrey;
 }
 
+.container--ingredients a.hide {
+  display: none;
+}
+
 .container--ingredients .show input::-webkit-input-placeholder {
   color: #98C0FB;
 }

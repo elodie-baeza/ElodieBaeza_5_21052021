@@ -39,6 +39,9 @@ section {
     background: #3282F7;
     @include filtreInput;
     }
+    a.hide {
+        display: none;
+    }
     .show input::placeholder {
         color: #98C0FB;
     }
