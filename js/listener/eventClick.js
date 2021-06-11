@@ -1,5 +1,6 @@
+import DomRecipes from '../dom/recipes/DomRecipes.js';
 import DomTag from '../dom/selectTags/DomTag.js';
-import SearchService from '../search/SearchService.js';
+import SearchServices from '../search/searchServices/SearchServices.js';
 
 export function eventClickFilter() {
     const tagsContainer = document.querySelector('.tagsContainer');
@@ -45,6 +46,10 @@ export function eventClickTags() {
 
 export function eventClickSearchBtn() {
     //au click sur le bouton principal de recherche, récupère dans searchParams tous les inputs de l'utilisateur 
-    document.getElementById('searchBtn').addEventListener('click', SearchService.mainInputSearch)
+    document.getElementById('searchBtn').addEventListener('click', () => { 
+        const searchServices = new SearchServices;
+        console.log(searchServices.launchSearch())
+        DomRecipes.builtRecipes(searchServices.launchSearch)
+    })
     // document.getElementById('searchBtn').addEventListener('click', () => {SearchService.mainInputSearch; titi()})
 }

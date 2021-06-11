@@ -2,15 +2,15 @@ import { recipes } from "../../data/recipes.js";
 
 //affiche les recettes dans le DOM
 export default class DomRecipes {
-    constructor(result) {
-        this.result = result;
+    constructor(searchResult) {
+        this.searchResult = searchResult;
     }
     getResult() {
-        return this.result;
+        return this.searchResult;
     }
     //affiche les recettes dans le DOM suivant résultat de recherche
-    builtRecipes() {
-        this.result.forEach(recipe => {
+    static builtRecipes(searchResult) {
+        searchResult.recipes.forEach(recipe => {
             let html = '';
             html += 
             `<div class="card" id=${recipe.id}>

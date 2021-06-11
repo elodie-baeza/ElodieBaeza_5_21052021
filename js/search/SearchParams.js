@@ -12,6 +12,12 @@ export default class SearchParams {
         var mainInput = transformSentence(document.getElementById('mainSearch').value);
         return mainInput
     }
+    isValidForPrimarySearch() {
+        return this.mainInput.value >= 2
+    }
+    isValidForSecondarySearch() {
+
+    }
     //retourne un tableau des éléments selectionnés pour une catégorie
     getIngredientsSelected() {
         const ingredientsSelected = new Map();
