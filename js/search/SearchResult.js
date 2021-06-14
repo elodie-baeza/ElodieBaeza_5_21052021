@@ -1,8 +1,8 @@
 export default class SearchResult {
-    constructor(recipes, ingredients, appareils, ustensiles) {
-        this.recipes = recipes,
-        this.ingredients = ingredients,
-        this.appareils = appareils,
-        this.ustensiles = ustensiles
+    constructor() {
+        this.recipes = [],
+        this.ingredients = new Set(),
+        this.appareils = new Set(),
+        this.ustensiles = new Set()
     }
 }

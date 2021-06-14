@@ -1,16 +1,16 @@
-import { recipes } from "../../data/recipes.js";
+// import { recipes } from "../../data/recipes.js";
 
 //affiche les recettes dans le DOM
 export default class DomRecipes {
-    constructor(searchResult) {
-        this.searchResult = searchResult;
+    constructor() {
+        // this.searchResult = searchResult;
     }
     getResult() {
-        return this.searchResult;
+        // return this.searchResult;
     }
     //affiche les recettes dans le DOM suivant résultat de recherche
-    static builtRecipes(searchResult) {
-        searchResult.recipes.forEach(recipe => {
+    static builtRecipes(result) {
+        result.forEach(recipe => {
             let html = '';
             html += 
             `<div class="card" id=${recipe.id}>
@@ -43,5 +43,11 @@ export default class DomRecipes {
                 document.getElementById(recipe.id).querySelector('.recipesIngredients').insertAdjacentHTML('beforeend',htmlIngr);            
             })
         });
+    }
+    static clearRecipes() {
+        const recipeList = [...document.getElementsByClassName('card')];
+        recipeList.forEach(recipe => {
+            recipe.remove()
+        })
     }
 }

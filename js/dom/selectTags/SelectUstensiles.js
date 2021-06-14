@@ -1,22 +1,24 @@
 //affiche la liste des ustensiles dans le DOM
 export default class SelectUstensiles {
-    constructor(result) {
-        this.result = result;
+    constructor() {
+        // this.result = result;
     }
-    getResult() {
-        return this.result;
-    }
+    // getResult() {
+    //     return this.result;
+    // }
     //rempli la liste complète des ustensiles à partir des recettes du résultat de recherche
-    builtFiltreUstensiles() {
+    static builtFiltre(searchResultUst) {
         let html = '';
-        this.result.forEach(element => {
-            html += `<a class="col-4 ustensile" href="#">${element}</a>`;
+        
+        searchResultUst.forEach(ust => {
+            html += `<a class="col-4 ustensile" href="#">${ust}</a>`;
         });
+
         let listSelect = document.getElementById('ustensilesListParent');
         listSelect.insertAdjacentHTML('beforeend',html);
     }
     //vide la liste
-    clear() {
+    static clear() {
         const aHtmlList = document.querySelectorAll('#ustensilesListParent a')
         aHtmlList.forEach(element => {
             element.remove()

@@ -4,7 +4,6 @@ import { recipes } from './recipes.js';
 export default class RecipesClean {
     constructor () {
         this.recipes = recipes
-        this.recipesClean = new Array();
     }
     
     //reconstruire un tableau recipesSimplified: (map)
@@ -12,6 +11,7 @@ export default class RecipesClean {
         //sans mot inférieurs à 3 lettres
         //séparer les suites de mots (ex: jus de citron --> ['jus', 'citron']) 
     clean() {
+        this.recipesClean = new Array();
         //nouvelle table des recettes
         // this.recipesClean = new Array()
         //reconstruit les propriétés du nouveau tableau à partir de recipes

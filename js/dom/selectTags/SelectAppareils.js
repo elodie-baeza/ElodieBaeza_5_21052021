@@ -1,22 +1,24 @@
 //affiche la liste des appareils dans le DOM
 export default class SelectAppareils {
-    constructor(result) {
-        this.result = result;
+    constructor() {
+        // this.result = result;
     }
-    getResult() {
-        return this.result;
-    }
+    // getResult() {
+    //     return this.result;
+    // }
     //rempli la liste complète des appareils à partir des recettes du résultat de recherche
-    builtFiltreAppareils() {
+    static builtFiltre(searchResultApp) {
         let html = '';
-        this.result.forEach(element => {
-            html += `<a class="col-4 appareil" href="#">${element}</a>`;
+        
+        searchResultApp.forEach(app => {
+            html += `<a class="col-4 appareil" href="#">${app}</a>`;
         });
+
         let listSelect = document.getElementById('appareilsListParent');
         listSelect.insertAdjacentHTML('beforeend',html);
     }
     //vide la liste
-    clear() {
+    static clear() {
         const aHtmlList = document.querySelectorAll('#appareilsListParent a')
         aHtmlList.forEach(element => {
             element.remove()

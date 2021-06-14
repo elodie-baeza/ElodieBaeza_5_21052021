@@ -2,15 +2,14 @@ import DomRecipes from '../dom/recipes/DomRecipes.js';
 import DomTag from '../dom/selectTags/DomTag.js';
 import SearchServices from '../search/searchServices/SearchServices.js';
 
-export function eventClickFilter() {
+export function eventClickFilter(filtresContainer) {
     const tagsContainer = document.querySelector('.tagsContainer');
-    var filtresAll = document.querySelectorAll('.filtresContainer a');
     const inputIngredients = document.getElementById('inputIngredients');
     const inputAppareils = document.getElementById('inputAppareils');
     const inputUstensiles = document.getElementById('inputUstensiles');
 
     //au click sur un filtre ajoute le tag
-    filtresAll.forEach(filtre => filtre.addEventListener('click', function (event){
+    filtresContainer.forEach(filtre => filtre.addEventListener('click', function (event){
         const name = event.target.innerHTML;
         const category = event.target.classList[1];
         const tag = new DomTag(name, category);
@@ -45,11 +44,10 @@ export function eventClickTags() {
 }
 
 export function eventClickSearchBtn() {
+    // const searchServices = new SearchServices();
     //au click sur le bouton principal de recherche, récupère dans searchParams tous les inputs de l'utilisateur 
-    document.getElementById('searchBtn').addEventListener('click', () => { 
-        const searchServices = new SearchServices;
-        console.log(searchServices.launchSearch())
-        DomRecipes.builtRecipes(searchServices.launchSearch)
+    document.getElementById('searchBtn').addEventListener('click', function() {
+        DomRecipes.clearRecipes();
+        DomRecipes.builtRecipes(SearchServices.launchSearch().recipes) 
     })
-    // document.getElementById('searchBtn').addEventListener('click', () => {SearchService.mainInputSearch; titi()})
 }
