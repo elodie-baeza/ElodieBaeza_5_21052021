@@ -45,9 +45,6 @@ export default class DomRecipes {
         });
     }
     static clearRecipes() {
-        const recipeList = [...document.getElementsByClassName('card')];
-        recipeList.forEach(recipe => {
-            recipe.remove()
-        })
+        document.getElementById('recipesContainer').textContent = ''
     }
 }

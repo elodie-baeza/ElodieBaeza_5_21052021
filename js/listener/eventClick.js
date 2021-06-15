@@ -1,6 +1,6 @@
 import DomTag from '../dom/selectTags/DomTag.js';
 
-export function eventClickFilter(filtresContainer) {
+export default function eventClickFilter(filtresContainer) {
     const tagsContainer = document.querySelector('.tagsContainer');
     const inputIngredients = document.getElementById('inputIngredients');
     const inputAppareils = document.getElementById('inputAppareils');
@@ -22,14 +22,17 @@ export function eventClickFilter(filtresContainer) {
         inputIngredients.value = ''
         inputAppareils.value = ''
         inputUstensiles.value = ''
+
+        eventClickTags();
     }));
 }
 
 export function eventClickTags() {
     //au click sur un tag, ferme le tag et enlève la class selected dans le DOM
-    document.querySelector('.tagsContainer').addEventListener('click', function (event){
+    document.querySelectorAll('#tagsContainer i').forEach(tag => tag.addEventListener('click', function (event){
+    // document.getElementById('tagsContainer').addEventListener('click', function (event){
         //récupère le texte du tag à fermer
-        const txtTagToRemove = event.target.parentNode.querySelector('span').innerHTML;
+        const txtTagToRemove = event.target.parentNode.querySelector('#tagsContainer span').innerHTML;
 
         //supprime class 'selected' dans HTML
         const selectedClass = document.getElementsByClassName('selected');
@@ -38,14 +41,6 @@ export function eventClickTags() {
         selectedClass[index].classList.remove('selected');
         //ferme le tag = supprime div 'badge' dans html
         event.target.parentNode.remove();
-    });
+    // });
+    }));
 }
-
-// export function eventClickSearchBtn() {
-//     // const searchServices = new SearchServices();
-//     //au click sur le bouton principal de recherche, récupère dans searchParams tous les inputs de l'utilisateur 
-//     document.getElementById('searchBtn').addEventListener('click', function() {
-//         DomRecipes.clearRecipes();
-//         DomRecipes.builtRecipes(SearchServices.launchSearch().recipes) 
-//     })
-// }

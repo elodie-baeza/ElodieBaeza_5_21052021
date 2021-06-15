@@ -1,4 +1,3 @@
-import { eventClickTags } from './listener/eventClick.js';
 import eventKeyupSearchFilter from './listener/eventKeyupSearchFilter.js';
 import { searchResult1 } from './fixtures/searchResult1.js';
 import { searchResult2 } from './fixtures/searchResult2.js';
@@ -10,7 +9,6 @@ import eventKeyupMainSearch from './listener/eventKeyupMainSearch.js';
 
 DomRecipes.builtRecipes(SearchServices.launchSearch().recipes) 
 
-eventClickTags();
 eventKeyupSearchFilter();
 eventKeyupMainSearch();
 

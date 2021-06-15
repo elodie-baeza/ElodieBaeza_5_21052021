@@ -3,11 +3,12 @@ import { recipes } from "../../data/recipes.js"
 import SearchResult from "../SearchResult.js"
 import SearchServiceInput from "./SearchServicesInput.js"
 import SearchServiceSecondary from "./SearchServicesSecondary.js"
-import SelectIngredients from "../../dom/selectTags/SelectIngredients.js"
-import SelectAppareils from "../../dom/selectTags/SelectAppareils.js"
-import SelectUstensiles from "../../dom/selectTags/SelectUstensiles.js"
-import { eventClickFilter } from "../../listener/eventClick.js"
+// import SelectIngredients from "../../dom/selectTags/SelectIngredients.js"
+// import SelectAppareils from "../../dom/selectTags/SelectAppareils.js"
+// import SelectUstensiles from "../../dom/selectTags/SelectUstensiles.js"
+import eventClickFilter from "../../listener/eventClick.js"
 import DomRecipes from "../../dom/recipes/DomRecipes.js"
+import DomFilters from "../../dom/selectTags/DomFilters.js"
 
 export default class SearchServices {
     constructor() {
@@ -56,16 +57,15 @@ export default class SearchServices {
             });
         })
 
-        SelectIngredients.clear()
-        SelectIngredients.builtFiltre(this.searchResult.ingredients)
+        DomFilters.clear('ingredientsListParent')
+        DomFilters.clear('appareilsListParent')
+        DomFilters.clear('ustensilesListParent')
 
-        SelectAppareils.clear()
-        SelectAppareils.builtFiltre(this.searchResult.appareils)
+        DomFilters.builtFilter(this.searchResult.ingredients,'ingredientsListParent','ingredient')
+        DomFilters.builtFilter(this.searchResult.appareils,'appareilsListParent','appareil')
+        DomFilters.builtFilter(this.searchResult.ustensiles,'ustensilesListParent','ustensile')
 
-        SelectUstensiles.clear()
-        SelectUstensiles.builtFiltre(this.searchResult.ustensiles)
-
-        eventClickFilter(document.querySelectorAll('.filtresContainer a'))
+        eventClickFilter(document.querySelectorAll('#filtresContainer a'))
 
         console.log(this.searchResult)
         return this.searchResult;
