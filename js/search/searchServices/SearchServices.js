@@ -27,7 +27,7 @@ export default class SearchServices {
         if (this.searchParams.isValidForPrimarySearch()) {
             //trouve les recettes avec le texte de la recherche principale
             this.searchMainRecipesResult = SearchServiceInput.research(
-                this.searchParams.getMainInput()
+                this.searchParams
                 // this.searchMainRecipesResult
             ); //30
             this.searchResultFinal = this.searchMainRecipesResult; //30
@@ -39,13 +39,18 @@ export default class SearchServices {
         // console.log(this.searchResultFinal)
         // this.searchResult.recipes = this.searchResultFinal
         // console.log(this.searchResult)
+        this.searchResult.recipes = this.searchResultFinal
 
         this.searchResultFinal.forEach(recipe => {
-            this.searchResult.recipes.push(recipe);
+
+            // this.searchResult.recipes.push(recipe);
+
             recipe.ingredients.forEach(element => {
                 this.searchResult.ingredients.add(element.ingredient);
             });
+
             this.searchResult.appareils.add(recipe.appliance);
+
             recipe.ustensils.forEach(element => {
                 this.searchResult.ustensiles.add(element);
             });

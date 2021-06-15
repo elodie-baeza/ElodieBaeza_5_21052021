@@ -1,6 +1,4 @@
-import DomRecipes from '../dom/recipes/DomRecipes.js';
 import DomTag from '../dom/selectTags/DomTag.js';
-import SearchServices from '../search/searchServices/SearchServices.js';
 
 export function eventClickFilter(filtresContainer) {
     const tagsContainer = document.querySelector('.tagsContainer');
@@ -43,11 +41,11 @@ export function eventClickTags() {
     });
 }
 
-export function eventClickSearchBtn() {
-    // const searchServices = new SearchServices();
-    //au click sur le bouton principal de recherche, récupère dans searchParams tous les inputs de l'utilisateur 
-    document.getElementById('searchBtn').addEventListener('click', function() {
-        DomRecipes.clearRecipes();
-        DomRecipes.builtRecipes(SearchServices.launchSearch().recipes) 
-    })
-}
+// export function eventClickSearchBtn() {
+//     // const searchServices = new SearchServices();
+//     //au click sur le bouton principal de recherche, récupère dans searchParams tous les inputs de l'utilisateur 
+//     document.getElementById('searchBtn').addEventListener('click', function() {
+//         DomRecipes.clearRecipes();
+//         DomRecipes.builtRecipes(SearchServices.launchSearch().recipes) 
+//     })
+// }

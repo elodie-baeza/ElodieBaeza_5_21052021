@@ -1,7 +1,7 @@
 import searchFilter from "../search/searchFilter.js";
 
 //tri les filtres à la saisie d'une lettre dans les inputs ingredients / appareils / ustensiles
-export default function eventKeyupInput() {
+export default function eventKeyupSearchFilter() {
     const inputIngredients = document.getElementById('inputIngredients');
     const inputAppareils = document.getElementById('inputAppareils');
     const inputUstensiles = document.getElementById('inputUstensiles');
