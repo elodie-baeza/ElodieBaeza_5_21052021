@@ -2,14 +2,10 @@
 
 //affiche les recettes dans le DOM
 export default class DomRecipes {
-    constructor() {
-        // this.searchResult = searchResult;
-    }
-    getResult() {
-        // return this.searchResult;
-    }
     //affiche les recettes dans le DOM suivant résultat de recherche
     static builtRecipes(result) {
+        document.getElementById('recipesContainer').textContent = ''
+
         result.forEach(recipe => {
             let html = '';
             html += 
@@ -39,12 +35,9 @@ export default class DomRecipes {
                     unit = element.unit
                 }
                 let htmlIngr = '';
-                htmlIngr += `<li>${element.ingredient}: ${element.quantity} ${unit}</li>`;
+                htmlIngr += `<li><strong>${element.ingredient}:</strong> ${element.quantity} ${unit}</li>`;
                 document.getElementById(recipe.id).querySelector('.recipesIngredients').insertAdjacentHTML('beforeend',htmlIngr);            
             })
         });
-    }
-    static clearRecipes() {
-        document.getElementById('recipesContainer').textContent = ''
     }
 }

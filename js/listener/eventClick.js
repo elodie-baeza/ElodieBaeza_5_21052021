@@ -1,4 +1,6 @@
+import DomRecipes from '../dom/recipes/DomRecipes.js';
 import DomTag from '../dom/selectTags/DomTag.js';
+import SearchServices from '../search/searchServices/SearchServices.js';
 
 export default function eventClickFilter(filtresContainer) {
     const tagsContainer = document.querySelector('.tagsContainer');
@@ -24,13 +26,13 @@ export default function eventClickFilter(filtresContainer) {
         inputUstensiles.value = ''
 
         eventClickTags();
+        DomRecipes.builtRecipes(SearchServices.launchSearch().recipes) 
     }));
 }
 
 export function eventClickTags() {
     //au click sur un tag, ferme le tag et enlève la class selected dans le DOM
     document.querySelectorAll('#tagsContainer i').forEach(tag => tag.addEventListener('click', function (event){
-    // document.getElementById('tagsContainer').addEventListener('click', function (event){
         //récupère le texte du tag à fermer
         const txtTagToRemove = event.target.parentNode.querySelector('#tagsContainer span').innerHTML;
 
@@ -41,6 +43,7 @@ export function eventClickTags() {
         selectedClass[index].classList.remove('selected');
         //ferme le tag = supprime div 'badge' dans html
         event.target.parentNode.remove();
-    // });
+
+        DomRecipes.builtRecipes(SearchServices.launchSearch().recipes) 
     }));
 }

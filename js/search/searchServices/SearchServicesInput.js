@@ -1,9 +1,6 @@
 import { recipes } from "../../data/recipes.js";
 
 export default class SearchServiceInput {
-    constructor() {
-        
-    }
     static research(searchParams) {
         console.log(searchParams)
         this.recipesResultList = new Set();
@@ -32,17 +29,6 @@ export default class SearchServiceInput {
                 }
             })
         });
-
-        // array.forEach(recipe => {
-        //     switch (recipe) {
-        //         case value:
-                    
-        //             break;
-            
-        //         default:
-        //             break;
-        //     }
-        // });
 
         console.log(this.recipesResultList)
         return this.recipesResultList;

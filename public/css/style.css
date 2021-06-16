@@ -174,8 +174,7 @@ section {
   color: white;
 }
 .container--ingredients input .selected, .container--ingredients button .selected, .container--ingredients .dropdown-menu .selected, .container--ingredients .col-4 .selected {
-  text-decoration: line-through;
-  color: lightgrey;
+  display: none;
 }
 .container--ingredients a.hide {
   display: none;
@@ -203,8 +202,7 @@ section {
   color: white;
 }
 .container--appareils input .selected, .container--appareils button .selected, .container--appareils .dropdown-menu .selected, .container--appareils .col-4 .selected {
-  text-decoration: line-through;
-  color: lightgrey;
+  display: none;
 }
 
 .container--ustensiles input {
@@ -226,8 +224,7 @@ section {
   color: white;
 }
 .container--ustensiles input .selected, .container--ustensiles button .selected, .container--ustensiles .dropdown-menu .selected, .container--ustensiles .col-4 .selected {
-  text-decoration: line-through;
-  color: lightgrey;
+  display: none;
 }
 
 .dropdown {

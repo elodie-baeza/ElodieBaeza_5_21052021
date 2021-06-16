@@ -16,12 +16,15 @@ export default class SearchParams {
         return this.mainInput.length > 2
     }
     isValidForSecondarySearch() {
-
+        return (
+            // this.mainInput.length != 0 &&
+            this.ingredientsSelected.size > 0 ||
+            this.appareilsSelected.size > 0 ||
+            this.ustensilesSelected.size > 0 )
     }
     //retourne un tableau des éléments selectionnés pour une catégorie
     getIngredientsSelected() {
         const ingredientsSelected = new Set();
-        // this.tagsIngredients.clear();
 
         //boucle sur le tableau précédent et pour chaque element, stocke le texte de la balise <a> dans un nouveau tableau
         const ingredientsSelectedDom = Array.from(document.querySelectorAll('#ingredientsListParent .selected'))
@@ -32,7 +35,6 @@ export default class SearchParams {
     }
     getAppareilsSelected() {
         const appareilsSelected = new Set();
-        // this.tagsAppareils.clear();
         const appareilsSelectedDom = Array.from(document.querySelectorAll('#appareilsListParent .selected'))
         appareilsSelectedDom.forEach( element => {
             appareilsSelected.add(element.innerHTML);
@@ -41,7 +43,6 @@ export default class SearchParams {
     }
     getUstensilesSelected() {
         const ustensilesSelected = new Set();
-        // this.tagsUstensiles.clear();
         const ustensilesSelectedDom = Array.from(document.querySelectorAll('#ustensilesListParent .selected'))
         ustensilesSelectedDom.forEach( element => {
             ustensilesSelected.add(element.innerHTML);

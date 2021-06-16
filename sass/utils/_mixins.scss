@@ -12,7 +12,8 @@
             color: white;
         }
         .selected {
-            text-decoration: line-through;
-            color: lightgrey;
+            display: none;
+            // text-decoration: line-through;
+            // color: lightgrey;
         }
 }
