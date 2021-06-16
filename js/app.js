@@ -1,11 +1,12 @@
 import eventKeyupSearchFilter from './listener/eventKeyupSearchFilter.js';
-import { searchResult1 } from './fixtures/searchResult1.js';
-import { searchResult2 } from './fixtures/searchResult2.js';
 import DomRecipes from './dom/recipes/DomRecipes.js';
-import RecipesClean from './data/RecipesClean.js';
 import { recipes } from './data/recipes.js';
 import SearchServices from './search/searchServices/SearchServices.js';
 import eventKeyupMainSearch from './listener/eventKeyupMainSearch.js';
+import RecipesClean2 from './data/RecipesClean2.js';
+
+RecipesClean2.clean()
+console.log(RecipesClean2.recipesClean)
 
 DomRecipes.builtRecipes(SearchServices.launchSearch().recipes) 
 

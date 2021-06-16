@@ -2,9 +2,11 @@ import { recipes } from "../../data/recipes.js";
 
 export default class SearchServiceInput {
     static research(searchParams) {
-        console.log(searchParams)
         this.recipesResultList = new Set();
         this.recipes = recipes;
+        
+        console.log(searchParams,searchParamsClean)
+
 
         this.recipes.forEach(recipe => {
             const tmpIngrList = new Set();
@@ -30,7 +32,6 @@ export default class SearchServiceInput {
             })
         });
 
-        console.log(this.recipesResultList)
         return this.recipesResultList;
     }
 }
