@@ -26,7 +26,7 @@ export default class DomRecipes {
                     </div>
                 </div>
             </div>`;
-            document.querySelector('.recipesContainer').insertAdjacentHTML('beforeend',html);
+            document.getElementById('recipesContainer').insertAdjacentHTML('beforeend',html);
             //affiche ingredients-quantité-unité dans le DOM de chaque recette
             recipe.ingredients.forEach(element => {
                 let unit = '';

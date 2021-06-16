@@ -1,6 +1,5 @@
-import DomRecipes from '../dom/recipes/DomRecipes.js';
+import { searchServices } from '../app.js';
 import DomTag from '../dom/selectTags/DomTag.js';
-import SearchServices from '../search/searchServices/SearchServices.js';
 
 export default function eventClickFilter(filtresContainer) {
     const tagsContainer = document.querySelector('.tagsContainer');
@@ -26,7 +25,7 @@ export default function eventClickFilter(filtresContainer) {
         inputUstensiles.value = ''
 
         eventClickTags();
-        DomRecipes.builtRecipes(SearchServices.launchSearch().recipes) 
+        searchServices.launchSearch()
     }));
 }
 
@@ -44,6 +43,6 @@ export function eventClickTags() {
         //ferme le tag = supprime div 'badge' dans html
         event.target.parentNode.remove();
 
-        DomRecipes.builtRecipes(SearchServices.launchSearch().recipes) 
+        searchServices.launchSearch()
     }));
 }

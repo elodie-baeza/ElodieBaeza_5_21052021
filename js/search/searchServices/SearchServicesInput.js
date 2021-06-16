@@ -1,37 +1,29 @@
 import { recipes } from "../../data/recipes.js";
+import RecipesClean2 from "../../data/RecipesClean2.js";
+import { normalize } from "../../utils/normalize.js";
 
 export default class SearchServiceInput {
     static research(searchParams) {
         this.recipesResultList = new Set();
-        this.recipes = recipes;
-        
-        console.log(searchParams,searchParamsClean)
+        this.recipes = RecipesClean2.recipesClean;
+        this.mainInput = normalize(searchParams.mainInput)
 
-
-        this.recipes.forEach(recipe => {
-            const tmpIngrList = new Set();
-            recipe.ingredients.forEach (ingredient => {
-                tmpIngrList.add(ingredient.ingredient)
-            })
-            
-            const tmpUstList = new Set();
-            recipe.ingredients.forEach (ingredient => {
-                tmpUstList.add(ingredient.ingredient)
-            })
+        this.recipes.forEach((recipe, index) => {
+            recipe.ingredients.forEach(element => {
+                if (element.includes(this.mainInput)) {
+                    this.recipesResultList.add(recipes[index])
+                }
+            });
 
             if (
-                recipe.name.includes(searchParams.mainInput) ||
-                recipe.description.includes(searchParams.mainInput)
-                ) {
-                this.recipesResultList.add(recipe)
+                recipe.name.includes(this.mainInput) ||
+                recipe.description.includes(this.mainInput)
+            ) {
+                this.recipesResultList.add(recipes[index])
             }
-            recipe.ingredients.forEach(element => {
-                if (element.ingredient.includes(searchParams.mainInput)){
-                    this.recipesResultList.add(recipe)
-                }
-            })
-        });
+        })
 
+        console.log(this.recipesResultList)
         return this.recipesResultList;
     }
 }

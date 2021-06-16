@@ -1,8 +1,6 @@
 export default class SearchServiceSecondary {
     static research(searchResult, searchParams) {
-        console.log(searchResult, searchParams)
         this.secondarySearchResult = new Set()
-        console.log(searchResult)
 
         if (searchParams.ingredientsSelected.size > 0) {
             searchParams.ingredientsSelected.forEach(ingrSelected => {

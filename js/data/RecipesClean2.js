@@ -3,10 +3,10 @@ import { recipes } from "./recipes.js";
 
 export default class RecipesClean2 {
     static clean() {
-        this.recipesClean = new Set();
+        this.recipesClean = new Array();
 
         recipes.forEach(recipe => {
-            this.recipesClean.add({
+            this.recipesClean.push({
                 'id': recipe.id,
                 'name': normalize(recipe.name),
                 // 'ingredients':recipe.ingredients,

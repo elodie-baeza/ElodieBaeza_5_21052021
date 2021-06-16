@@ -1,5 +1,3 @@
-import { transformSentence } from "../utils/transformSentence.js";
-
 export default class SearchParams {
     constructor () {
         this.mainInput = document.getElementById('mainSearch').value;
@@ -9,18 +7,26 @@ export default class SearchParams {
     }
     //
     getMainInput() {
-        // var mainInput = transformSentence(document.getElementById('mainSearch'));
         return this.mainInput
     }
     isValidForPrimarySearch() {
-        return this.mainInput.length > 2
+        let regex = /^\S[A-Za-z]{2,}/
+        return regex.test(this.mainInput)
     }
     isValidForSecondarySearch() {
         return (
-            // this.mainInput.length != 0 &&
             this.ingredientsSelected.size > 0 ||
             this.appareilsSelected.size > 0 ||
-            this.ustensilesSelected.size > 0 )
+            this.ustensilesSelected.size > 0
+            )
+    }
+    isValidForTertiarySearch() {
+        return (
+            this.mainInput === '' &&
+            this.ingredientsSelected.size > 0 ||
+            this.appareilsSelected.size > 0 ||
+            this.ustensilesSelected.size > 0
+            )
     }
     //retourne un tableau des éléments selectionnés pour une catégorie
     getIngredientsSelected() {
