@@ -1379,7 +1379,7 @@ export const recipes = [
                 "quantity": 3
             },
             {
-                "ingredient": "Sucre en poudre",
+                "ingredient": "Sucre en Poudre",
                 "quantity": 4,
                 "unit":"cuillères à café"
             },

@@ -16,25 +16,29 @@ export default class SearchServices {
         this.searchMainRecipesResult = this.defaultRecipes; //100
         this.searchResultFinal = this.defaultRecipes; //100
     }
-    init() {
-        this.searchParams.getParams()
-        this.searchResult.init()
-        //si aucun param, affiche toutes les recettes
-        this.searchResultFinal = SearchServiceInput.research(this.searchParams); //30
-        this.builtSearchresult(this.searchResultFinal)
-        this.builtDom(this.searchResult)     
-    }
+    // init() {
+    //     this.searchParams.getParams()
+    //     this.searchResult.init()
+    //     //si aucun param, affiche toutes les recettes
+    //     this.searchResultFinal = SearchServiceInput.research(this.searchParams); //30
+    //     this.builtSearchresult(this.searchResultFinal)
+    //     this.builtDom(this.searchResult)     
+    // }
 
     launchSearch() {
+        this.searchParams = new SearchParams();
+        this.searchResult = new SearchResult();
+
         console.log(this.searchParams)
         console.log(this.searchResult)
 
-        this.searchParams.getParams()
+        // this.searchParams.getParams()
         // this.searchResult.init()
-        //si aucun param, affiche toutes les recettes
-        // this.searchResultFinal = SearchServiceInput.research(this.searchParams); //30
-        // this.builtSearchresult(this.searchResultFinal)
-        // this.builtDom(this.searchResult)    
+
+        // si aucun param, affiche toutes les recettes
+        this.searchResultFinal = SearchServiceInput.research(this.searchParams); //30
+        this.builtSearchresult(this.searchResultFinal)
+        this.builtDom(this.searchResult)    
         
         //si champ principal valide (au moins 3 caractères)
         if (this.searchParams.isValidForPrimarySearch() == true) {
@@ -97,6 +101,7 @@ export default class SearchServices {
                 this.searchResult.ustensiles.add(element);
             });
         })
+        this.searchResult.allFilter = [...this.searchResult.ingredients,...this.searchResult.appareils,...this.searchResult.ustensiles]
         // console.log(this.searchResult)
     }
 

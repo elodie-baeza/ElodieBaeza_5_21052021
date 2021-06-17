@@ -3,12 +3,13 @@ export default class SearchResult {
         this.recipes = [],
         this.ingredients = new Set(),
         this.appareils = new Set(),
-        this.ustensiles = new Set()
+        this.ustensiles = new Set(),
+        this.allFilter = new Set()
     }
-    init() {
-        this.recipes = []
-        this.ingredients.clear()
-        this.appareils.clear()
-        this.ustensiles.clear()
-    }
+    // init() {
+    //     this.recipes = []
+    //     this.ingredients.clear()
+    //     this.appareils.clear()
+    //     this.ustensiles.clear()
+    // }
 }

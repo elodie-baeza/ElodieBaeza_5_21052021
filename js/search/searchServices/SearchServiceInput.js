@@ -1,11 +1,11 @@
 import { recipes } from "../../data/recipes.js";
-import RecipesClean2 from "../../data/RecipesClean2.js";
+import RecipesClean from "../../data/RecipesClean.js";
 import { normalize } from "../../utils/normalize.js";
 
 export default class SearchServiceInput {
     static research(searchParams) {
         this.recipesResultList = new Set();
-        this.recipes = RecipesClean2.recipesClean;
+        this.recipes = RecipesClean.recipesClean;
         this.mainInput = normalize(searchParams.mainInput)
 
         this.recipes.forEach((recipe, index) => {

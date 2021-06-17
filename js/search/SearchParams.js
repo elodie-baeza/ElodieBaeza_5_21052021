@@ -4,6 +4,10 @@ export default class SearchParams {
         this.ingredientsSelected = this.getIngredientsSelected();
         this.appareilsSelected = this.getAppareilsSelected();
         this.ustensilesSelected = this.getUstensilesSelected();
+        this.allSelected = new Set([...this.getIngredientsSelected(),...this.getAppareilsSelected(),...this.getUstensilesSelected()])
+    }
+    hasInput() {
+
     }
     getParams() {
         this.mainInput = document.getElementById('mainSearch').value;
@@ -21,17 +25,17 @@ export default class SearchParams {
     isValidForSecondarySearch() {
         return (
             this.isValidForPrimarySearch() &&
-            this.ingredientsSelected.size > 0 ||
-            this.appareilsSelected.size > 0 ||
-            this.ustensilesSelected.size > 0
+            this.ingredientsSelected.size > 0
+            || this.appareilsSelected.size > 0
+            || this.ustensilesSelected.size > 0
             )
     }
     isValidForTertiarySearch() {
         return (
             this.mainInput === '' &&
-            this.ingredientsSelected.size > 0 ||
-            this.appareilsSelected.size > 0 ||
-            this.ustensilesSelected.size > 0
+            this.ingredientsSelected.size > 0
+            || this.appareilsSelected.size > 0
+            || this.ustensilesSelected.size > 0
             )
     }
     //retourne un tableau des éléments selectionnés pour une catégorie
