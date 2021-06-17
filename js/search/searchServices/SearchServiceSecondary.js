@@ -1,14 +1,19 @@
 export default class SearchServiceSecondary {
     static research(searchResult, searchParams) {
         this.secondarySearchResult = new Set()
-
+        console.log(searchResult)
+        console.log(searchParams)
         if (searchParams.ingredientsSelected.size > 0) {
             searchParams.ingredientsSelected.forEach(ingrSelected => {
+                console.log(ingrSelected)
                 searchResult.forEach(recipe => {
                     recipe.ingredients.forEach(ingredient => {
+                        //ajoute la recette dans le résultat si trouve l'ingrédient sélectionné
+                        console.log(ingredient.ingredient.indexOf(ingrSelected) > -1)
                         if (ingredient.ingredient.indexOf(ingrSelected) > -1) {
                             this.secondarySearchResult.add(recipe)
-                        }
+                            console.log(this.secondarySearchResult)
+                        } 
                     });
                 });
             });
@@ -31,6 +36,7 @@ export default class SearchServiceSecondary {
                 });
             });
         }
+        console.log(this.secondarySearchResult)
         return this.secondarySearchResult
     }
 }

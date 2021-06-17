@@ -5,4 +5,10 @@ export default class SearchResult {
         this.appareils = new Set(),
         this.ustensiles = new Set()
     }
+    init() {
+        this.recipes = []
+        this.ingredients.clear()
+        this.appareils.clear()
+        this.ustensiles.clear()
+    }
 }

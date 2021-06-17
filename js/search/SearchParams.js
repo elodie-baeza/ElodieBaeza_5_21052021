@@ -5,7 +5,12 @@ export default class SearchParams {
         this.appareilsSelected = this.getAppareilsSelected();
         this.ustensilesSelected = this.getUstensilesSelected();
     }
-    //
+    getParams() {
+        this.mainInput = document.getElementById('mainSearch').value;
+        this.ingredientsSelected = this.getIngredientsSelected();
+        this.appareilsSelected = this.getAppareilsSelected();
+        this.ustensilesSelected = this.getUstensilesSelected();
+    }
     getMainInput() {
         return this.mainInput
     }
@@ -15,6 +20,7 @@ export default class SearchParams {
     }
     isValidForSecondarySearch() {
         return (
+            this.isValidForPrimarySearch() &&
             this.ingredientsSelected.size > 0 ||
             this.appareilsSelected.size > 0 ||
             this.ustensilesSelected.size > 0

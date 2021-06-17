@@ -1,8 +1,8 @@
 import SearchParams from "../SearchParams.js"
 import { recipes } from "../../data/recipes.js"
 import SearchResult from "../SearchResult.js"
-import SearchServiceInput from "./SearchServicesInput.js"
-import SearchServiceSecondary from "./SearchServicesSecondary.js"
+import SearchServiceInput from "./SearchServiceInput.js"
+import SearchServiceSecondary from "./SearchServiceSecondary.js"
 import eventClickFilter from "../../listener/eventClick.js"
 import DomRecipes from "../../dom/recipes/DomRecipes.js"
 import DomFilters from "../../dom/selectTags/DomFilters.js"
@@ -10,22 +10,31 @@ import DomFilters from "../../dom/selectTags/DomFilters.js"
 export default class SearchServices {
     constructor() {
         this.defaultRecipes = recipes;
+        this.searchParams = new SearchParams();
+        this.searchResult = new SearchResult();
 
         this.searchMainRecipesResult = this.defaultRecipes; //100
         this.searchResultFinal = this.defaultRecipes; //100
     }
-
-    launchSearch() {
-        this.searchParams = new SearchParams();
-        this.searchResult = new SearchResult();
-
-        console.log(this.searchParams)
-        console.log(this.searchResult)
-
+    init() {
+        this.searchParams.getParams()
+        this.searchResult.init()
         //si aucun param, affiche toutes les recettes
         this.searchResultFinal = SearchServiceInput.research(this.searchParams); //30
         this.builtSearchresult(this.searchResultFinal)
-        this.builtDom(this.searchResult)    
+        this.builtDom(this.searchResult)     
+    }
+
+    launchSearch() {
+        console.log(this.searchParams)
+        console.log(this.searchResult)
+
+        this.searchParams.getParams()
+        // this.searchResult.init()
+        //si aucun param, affiche toutes les recettes
+        // this.searchResultFinal = SearchServiceInput.research(this.searchParams); //30
+        // this.builtSearchresult(this.searchResultFinal)
+        // this.builtDom(this.searchResult)    
         
         //si champ principal valide (au moins 3 caractères)
         if (this.searchParams.isValidForPrimarySearch() == true) {
@@ -49,16 +58,19 @@ export default class SearchServices {
             this.builtDom(this.searchResult)    
         }
 
-        //si filtre selectionné, recherche recette parmis les recettes du 1er résultat
+        //si recherche principale + filtre selectionné, recherche parmis les recettes du 1er résultat de la recherche principale
         if (this.searchParams.isValidForSecondarySearch()) {
             this.searchResultFinal = SearchServiceSecondary.research(this.searchMainRecipesResult, this.searchParams);//10
             this.builtSearchresult(this.searchResultFinal)
+            // console.log(this.searchParams)
             this.builtDom(this.searchResult)    
         }
 
         //si uniquement filtre selectionné, recherche dans toutes les recettes
         if (this.searchParams.isValidForTertiarySearch()) {
-            this.searchResultFinal = SearchServiceSecondary.research(this.defaultRecipes, this.searchParams);
+            console.log(this.searchResult, this.searchParams)
+            this.searchResultFinal = SearchServiceSecondary.research(this.searchResult.recipes, this.searchParams);
+            console.log(this.searchResultFinal)
             this.builtSearchresult(this.searchResultFinal)
             this.builtDom(this.searchResult)    
         }
@@ -70,7 +82,11 @@ export default class SearchServices {
     }
 
     builtSearchresult(result) {
+        // console.log(result)
         this.searchResult.recipes = result
+        this.searchResult.ingredients.clear()
+        this.searchResult.appareils.clear()
+        this.searchResult.ustensiles.clear()
 
         this.searchResult.recipes.forEach(recipe => {
             recipe.ingredients.forEach(element => {
@@ -81,9 +97,11 @@ export default class SearchServices {
                 this.searchResult.ustensiles.add(element);
             });
         })
+        // console.log(this.searchResult)
     }
 
     builtDom(result) {
+        // console.log(result)
         DomRecipes.builtRecipes(result.recipes)
         DomFilters.builtFilter(this.searchParams.ingredientsSelected, result.ingredients,'ingredientsListParent','ingredient')
         DomFilters.builtFilter(this.searchParams.appareilsSelected, result.appareils,'appareilsListParent','appareil')

@@ -23,7 +23,7 @@ export default class SearchServiceInput {
             }
         })
 
-        console.log(this.recipesResultList)
+        // console.log(this.recipesResultList)
         return this.recipesResultList;
     }
 }
