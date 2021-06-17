@@ -16,14 +16,6 @@ export default class SearchServices {
         this.searchMainRecipesResult = this.defaultRecipes; //100
         this.searchResultFinal = this.defaultRecipes; //100
     }
-    // init() {
-    //     this.searchParams.getParams()
-    //     this.searchResult.init()
-    //     //si aucun param, affiche toutes les recettes
-    //     this.searchResultFinal = SearchServiceInput.research(this.searchParams); //30
-    //     this.builtSearchresult(this.searchResultFinal)
-    //     this.builtDom(this.searchResult)     
-    // }
 
     launchSearch() {
         this.searchParams = new SearchParams();
@@ -72,9 +64,9 @@ export default class SearchServices {
 
         //si uniquement filtre selectionné, recherche dans toutes les recettes
         if (this.searchParams.isValidForTertiarySearch()) {
-            console.log(this.searchResult, this.searchParams)
+            // console.log(this.searchResult, this.searchParams)
             this.searchResultFinal = SearchServiceSecondary.research(this.searchResult.recipes, this.searchParams);
-            console.log(this.searchResultFinal)
+            // console.log(this.searchResultFinal)
             this.builtSearchresult(this.searchResultFinal)
             this.builtDom(this.searchResult)    
         }
