@@ -2,7 +2,7 @@
 //affiche la liste des ingredients dans le DOM
 export default class DomFilters {
     //rempli la liste complète des ingredients à partir des recettes du résultat de recherche
-    static builtFilter(searchParams, searchResult, parentList, category) {
+    static buildFilter(searchParams, searchResult, parentList, category) {
 
         const filterList = [...document.getElementById(parentList).children]
         filterList.forEach(element => {

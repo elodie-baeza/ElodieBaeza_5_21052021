@@ -3,7 +3,7 @@
 //affiche les recettes dans le DOM
 export default class DomRecipes {
     //affiche les recettes dans le DOM suivant résultat de recherche
-    static builtRecipes(result) {
+    static buildRecipes(result) {
         document.getElementById('recipesContainer').textContent = ''
 
         result.forEach(recipe => {

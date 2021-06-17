@@ -6,8 +6,13 @@ export default class SearchParams {
         this.ustensilesSelected = this.getUstensilesSelected();
         this.allSelected = new Set([...this.getIngredientsSelected(),...this.getAppareilsSelected(),...this.getUstensilesSelected()])
     }
-    hasInput() {
-
+    isEmpty() {
+        return (
+            this.mainInput === ''
+            && this.ingredientsSelected.size == 0
+            && this.appareilsSelected.size == 0
+            && this.ustensilesSelected.size == 0
+            )
     }
     getParams() {
         this.mainInput = document.getElementById('mainSearch').value;
@@ -24,16 +29,16 @@ export default class SearchParams {
     }
     isValidForSecondarySearch() {
         return (
-            this.isValidForPrimarySearch() &&
-            this.ingredientsSelected.size > 0
+            this.isValidForPrimarySearch()
+            && this.ingredientsSelected.size > 0
             || this.appareilsSelected.size > 0
             || this.ustensilesSelected.size > 0
             )
     }
     isValidForTertiarySearch() {
         return (
-            this.mainInput === '' &&
-            this.ingredientsSelected.size > 0
+            this.mainInput === ''
+            && this.ingredientsSelected.size > 0
             || this.appareilsSelected.size > 0
             || this.ustensilesSelected.size > 0
             )
