@@ -3,7 +3,7 @@ import { recipes } from "./recipes.js";
 
 export default class RecipesClean {
     static clean() {
-        this.recipesClean = new Array();
+        this.recipesClean = [];
 
         recipes.forEach(recipe => {
             this.recipesClean.push({
@@ -17,9 +17,9 @@ export default class RecipesClean {
             })
         })
         this.recipesClean.forEach(recipe => {
-            recipe.allMaterial = new Set([...recipe.ingredients,...recipe.appliance,...recipe.ustensils])
+            recipe.allMaterial = new Set([...recipe.ingredients,...recipe.appliance,...recipe.ustensils]);
         });
         
-        return this.recipesClean
+        return this.recipesClean;
     }
 }

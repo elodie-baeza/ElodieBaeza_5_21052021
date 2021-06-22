@@ -1,10 +1,8 @@
-// import { recipes } from "../../data/recipes.js";
-
 //affiche les recettes dans le DOM
 export default class DomRecipes {
     //affiche les recettes dans le DOM suivant résultat de recherche
     static buildRecipes(result) {
-        document.getElementById('recipesContainer').textContent = ''
+        document.getElementById('recipesContainer').textContent = '';
 
         result.forEach(recipe => {
             let html = '';
@@ -31,8 +29,8 @@ export default class DomRecipes {
             recipe.ingredients.forEach(element => {
                 let unit = '';
                 //affiche unité si renseignée
-                if (element.unit != undefined) {
-                    unit = element.unit
+                if (element.unit !== undefined) {
+                    unit = element.unit;
                 }
                 let htmlIngr = '';
                 htmlIngr += `<li><strong>${element.ingredient}:</strong> ${element.quantity} ${unit}</li>`;

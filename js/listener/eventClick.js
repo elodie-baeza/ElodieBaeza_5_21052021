@@ -20,12 +20,12 @@ export default function eventClickFilter(filtresContainer) {
         event.target.classList.add('selected');
 
         //réinitialise tous les champs de saisie des filtres
-        inputIngredients.value = ''
-        inputAppareils.value = ''
-        inputUstensiles.value = ''
+        inputIngredients.value = '';
+        inputAppareils.value = '';
+        inputUstensiles.value = '';
 
         eventClickTags();
-        searchServices.launchSearch()
+        searchServices.launchSearch();
     }));
 }
 
@@ -43,6 +43,6 @@ export function eventClickTags() {
         //ferme le tag = supprime div 'badge' dans html
         event.target.parentNode.remove();
 
-        searchServices.launchSearch()
+        searchServices.launchSearch();
     }));
 }

@@ -1,17 +1,17 @@
+import { recipesClean } from "../../app.js";
 import { recipes } from "../../data/recipes.js";
-import RecipesClean from "../../data/RecipesClean.js";
 import { normalize } from "../../utils/normalize.js";
 
 export default class SearchServiceInput {
     static research(searchParams) {
         this.recipesResultList = new Set();
-        this.recipes = RecipesClean.recipesClean;
-        this.mainInput = normalize(searchParams.mainInput)
+        this.recipes = recipesClean;
+        this.mainInput = normalize(searchParams.mainInput);
 
         this.recipes.forEach((recipe, index) => {
             recipe.ingredients.forEach(element => {
                 if (element.includes(this.mainInput)) {
-                    this.recipesResultList.add(recipes[index])
+                    this.recipesResultList.add(recipes[index]);
                 }
             });
 
@@ -19,7 +19,7 @@ export default class SearchServiceInput {
                 recipe.name.includes(this.mainInput) ||
                 recipe.description.includes(this.mainInput)
             ) {
-                this.recipesResultList.add(recipes[index])
+                this.recipesResultList.add(recipes[index]);
             }
         })
 

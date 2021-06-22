@@ -4,13 +4,13 @@ import eventKeyupMainSearch from './listener/eventKeyupMainSearch.js';
 import RecipesClean from './data/RecipesClean.js';
 import SearchServices from './search/searchServices/SearchServices.js';
 
-console.log(recipes)
+console.log(recipes);
 
-export const recipesClean = RecipesClean.clean()
-console.log(recipesClean)
+export const recipesClean = RecipesClean.clean();
+console.log(recipesClean);
 
-export const searchServices = new SearchServices
-searchServices.launchSearch()
+export const searchServices = new SearchServices();
+searchServices.launchSearch();
 
 eventKeyupSearchFilter();
 eventKeyupMainSearch();

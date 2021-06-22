@@ -4,7 +4,7 @@ export default class SearchParams {
         this.ingredientsSelected = this.getIngredientsSelected();
         this.appareilsSelected = this.getAppareilsSelected();
         this.ustensilesSelected = this.getUstensilesSelected();
-        this.allSelected = new Set([...this.getIngredientsSelected(),...this.getAppareilsSelected(),...this.getUstensilesSelected()])
+        this.allSelected = new Set([...this.getIngredientsSelected(),...this.getAppareilsSelected(),...this.getUstensilesSelected()]);
     }
     isEmpty() {
         return (
@@ -13,15 +13,6 @@ export default class SearchParams {
             && this.appareilsSelected.size == 0
             && this.ustensilesSelected.size == 0
             )
-    }
-    getParams() {
-        this.mainInput = document.getElementById('mainSearch').value;
-        this.ingredientsSelected = this.getIngredientsSelected();
-        this.appareilsSelected = this.getAppareilsSelected();
-        this.ustensilesSelected = this.getUstensilesSelected();
-    }
-    getMainInput() {
-        return this.mainInput
     }
     isValidForPrimarySearch() {
         let regex = /^\S[A-Za-z]{2,}/
@@ -48,7 +39,7 @@ export default class SearchParams {
         const ingredientsSelected = new Set();
 
         //boucle sur le tableau précédent et pour chaque element, stocke le texte de la balise <a> dans un nouveau tableau
-        const ingredientsSelectedDom = Array.from(document.querySelectorAll('#ingredientsListParent .selected'))
+        const ingredientsSelectedDom = Array.from(document.querySelectorAll('#ingredientsListParent .selected'));
         ingredientsSelectedDom.forEach( element => {
             ingredientsSelected.add(element.innerHTML);
         });
@@ -56,7 +47,7 @@ export default class SearchParams {
     }
     getAppareilsSelected() {
         const appareilsSelected = new Set();
-        const appareilsSelectedDom = Array.from(document.querySelectorAll('#appareilsListParent .selected'))
+        const appareilsSelectedDom = Array.from(document.querySelectorAll('#appareilsListParent .selected'));
         appareilsSelectedDom.forEach( element => {
             appareilsSelected.add(element.innerHTML);
         });
@@ -64,7 +55,7 @@ export default class SearchParams {
     }
     getUstensilesSelected() {
         const ustensilesSelected = new Set();
-        const ustensilesSelectedDom = Array.from(document.querySelectorAll('#ustensilesListParent .selected'))
+        const ustensilesSelectedDom = Array.from(document.querySelectorAll('#ustensilesListParent .selected'));
         ustensilesSelectedDom.forEach( element => {
             ustensilesSelected.add(element.innerHTML);
         });

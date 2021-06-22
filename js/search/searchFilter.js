@@ -13,10 +13,10 @@ export default function searchFilter(input, containerList) {
         txtValue = element.textContent || element.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
         // element.style.display = "";
-        element.classList.remove('hide')
+        element.classList.remove('hide');
         } else {
         // element.style.display = "none";
-        element.classList.add('hide')
+        element.classList.add('hide');
         }
     });
 }

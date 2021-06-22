@@ -1,4 +1,3 @@
-
 //affiche la liste des ingredients dans le DOM
 export default class DomFilters {
     //rempli la liste complète des ingredients à partir des recettes du résultat de recherche
