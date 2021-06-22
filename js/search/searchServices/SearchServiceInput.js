@@ -8,20 +8,19 @@ export default class SearchServiceInput {
         this.recipes = recipesClean;
         this.arrayMainInput = tableOfWords(searchParams.mainInput);
 
-            this.recipes.forEach((recipe, index) => {
-                recipe.ingredients.forEach(element => {       
-                    if (Array.from(this.arrayMainInput).every(x => element.includes(x))) {
+        this.recipes.forEach((recipe, index) => {
+            if (this.arrayMainInput.every(x => recipe.name.includes(x) || recipe.description.includes(x))) {
+                this.recipesResultList.add(recipes[index]);
+            }
+
+            recipe.ingredients.forEach(ingredient => {
+                this.arrayMainInput.forEach(word => {
+                    if (ingredient.includes(word)) {
                         this.recipesResultList.add(recipes[index]);
                     }
                 });
-
-                if (Array.from(this.arrayMainInput).every(x => 
-                    recipe.name.includes(x) ||
-                    recipe.description.includes(x))
-                ) {
-                    this.recipesResultList.add(recipes[index]);
-                }
-            })
+            });
+        })
 
         // console.log(this.recipesResultList)
         return this.recipesResultList;
