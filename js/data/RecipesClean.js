@@ -1,4 +1,4 @@
-import { normalize } from "../utils/normalize.js";
+import { formatString } from "../utils/formatString.js";
 import { recipes } from "./recipes.js";
 
 export default class RecipesClean {
@@ -8,12 +8,12 @@ export default class RecipesClean {
         recipes.forEach(recipe => {
             this.recipesClean.push({
                 'id': recipe.id,
-                'name': normalize(recipe.name),
-                'ingredients': new Set(recipe.ingredients.map(item => normalize(item.ingredient))),
+                'name': formatString(recipe.name),
+                'ingredients': new Set(recipe.ingredients.map(item => formatString(item.ingredient))),
                 'time': recipe.time,
-                'description': normalize(recipe.description),
-                'appliance': new Set().add(normalize(recipe.appliance)),
-                'ustensils': new Set(recipe.ustensils.map(item => normalize(item))),
+                'description': formatString(recipe.description),
+                'appliance': new Set().add(formatString(recipe.appliance)),
+                'ustensils': new Set(recipe.ustensils.map(item => formatString(item))),
             })
         })
         this.recipesClean.forEach(recipe => {

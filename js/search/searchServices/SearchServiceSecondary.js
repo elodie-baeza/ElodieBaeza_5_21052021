@@ -1,5 +1,5 @@
 import { recipesClean } from "../../app.js";
-import { normalize } from "../../utils/normalize.js";
+import { formatString } from "../../utils/formatString.js";
 
 export default class SearchServiceSecondary {
     static research(searchResult, searchParams) {
@@ -8,7 +8,7 @@ export default class SearchServiceSecondary {
         // console.log(searchResult)
         searchResult.forEach(recipe => {
             let indexOfRecipe = recipe.id - 1;
-            if (Array.from(searchParams.allSelected).every(x => Array.from(recipesClean[indexOfRecipe].allMaterial).includes(normalize(x)))) {
+            if (Array.from(searchParams.allSelected).every(x => Array.from(recipesClean[indexOfRecipe].allMaterial).includes(formatString(x)))) {
                 this.secondarySearchResult.add(recipe);
             }
         });
