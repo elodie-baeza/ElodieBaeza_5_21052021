@@ -15,8 +15,9 @@ export default class SearchParams {
             )
     }
     isValidForPrimarySearch() {
-        let regex = /^\S[A-Za-z]{2,}/
-        return regex.test(this.mainInput)
+        // let regex = /^\S[A-Za-z]{2,}/
+        // return regex.test(this.mainInput)
+        return this.mainInput.trim().length > 2
     }
     isValidForSecondarySearch() {
         return (
