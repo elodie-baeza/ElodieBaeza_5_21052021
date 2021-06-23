@@ -17,11 +17,9 @@ export default class SearchServiceInput {
             }
 
             recipe.ingredients.forEach(ingredient => {
-                this.arrayMainInput.forEach(word => {
-                    if (this.arrayMainInput.every(x => ingredient.includes(x))) {
-                        this.recipesResultList.add(recipes[index]);
-                    }
-                });
+                if (this.arrayMainInput.every(x => ingredient.includes(x))) {
+                    this.recipesResultList.add(recipes[index]);
+                };
             });
         })
 
