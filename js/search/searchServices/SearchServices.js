@@ -18,6 +18,7 @@ export default class SearchServices {
         this.searchParams = new SearchParams();
         this.searchResult = new SearchResult();
 
+        console.log(this.searchParams.codeStatus)
         console.log(this.searchParams)
         console.log(this.searchResult)
 
@@ -28,7 +29,7 @@ export default class SearchServices {
                 this.buildDom(this.searchResult);    
                 break;
         
-            case 1: // si texte dans champ principal
+            case 1: // si texte présent dans champ principal
                 //cherche les recettes suivant la recherche principale
                 this.searchMainRecipesResult = SearchServiceInput.research(this.searchParams); //30
                 this.searchResultFinal = this.searchMainRecipesResult; //30

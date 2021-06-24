@@ -17,8 +17,8 @@ export default class SearchParams {
         } 
         else if (this.mainInput.trim().length > 2
         && this.ingredientsSelected.size == 0
-        && this.appareilsSelected.size == 0
-        && this.ustensilesSelected.size == 0
+        || this.appareilsSelected.size == 0
+        || this.ustensilesSelected.size == 0
         ) { //only main input
             this.codeStatus = 1;
         } 
@@ -27,39 +27,39 @@ export default class SearchParams {
         || this.appareilsSelected.size !== 0
         || this.ustensilesSelected.size !== 0
         ) { //only tag
-            this.codeStatus = 2;
+            this.codeStatus = 3;
         }
         return this.codeStatus;
     }
-    isEmpty() {
-        return (
-            this.mainInput === ''
-            && this.ingredientsSelected.size == 0
-            && this.appareilsSelected.size == 0
-            && this.ustensilesSelected.size == 0
-            )
-    }
-    isValidForPrimarySearch() {
-        // let regex = /^\S[A-Za-z]{2,}/
-        // return regex.test(this.mainInput)
-        return this.mainInput.trim().length > 2
-    }
+    // isEmpty() {
+    //     return (
+    //         this.mainInput === ''
+    //         && this.ingredientsSelected.size == 0
+    //         && this.appareilsSelected.size == 0
+    //         && this.ustensilesSelected.size == 0
+    //         )
+    // }
+    // isValidForPrimarySearch() {
+    //     // let regex = /^\S[A-Za-z]{2,}/
+    //     // return regex.test(this.mainInput)
+    //     return this.mainInput.trim().length > 2
+    // }
     tagIsSelected() {
         return (
-            this.isValidForPrimarySearch()
+            this.mainInput.trim().length > 2
             && this.ingredientsSelected.size > 0
             || this.appareilsSelected.size > 0
             || this.ustensilesSelected.size > 0
             )
     }
-    isValidForTertiarySearch() {
-        return (
-            this.mainInput === ''
-            && this.ingredientsSelected.size > 0
-            || this.appareilsSelected.size > 0
-            || this.ustensilesSelected.size > 0
-            )
-    }
+    // isValidForTertiarySearch() {
+    //     return (
+    //         this.mainInput === ''
+    //         && this.ingredientsSelected.size > 0
+    //         || this.appareilsSelected.size > 0
+    //         || this.ustensilesSelected.size > 0
+    //         )
+    // }
     //retourne un tableau des éléments selectionnés pour une catégorie
     getIngredientsSelected() {
         const ingredientsSelected = new Set();
