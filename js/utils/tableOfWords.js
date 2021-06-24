@@ -10,13 +10,6 @@ export function tableOfWords(sentence) {
 
     //supprime du tableau les mots infèrieurs à 4 lettres et "dans"
     for (let i=0 ; i < tableOfWords.length ; i++) {
-        // supprime les articles: si le mot est inférieur à 4 caractères, supprime le mot du tableau
-        // if (tableOfWords[i].length < 4) {
-        //     tableOfWords.splice(i,1);
-        //     i -= 1
-        // } 
-        //sinon supprime 'dans'
-        // else {
             switch (tableOfWords[i]) {
                 case 'DANS':
                     tableOfWords.splice(i,1);
@@ -59,9 +52,7 @@ export function tableOfWords(sentence) {
                 default:
                     break;
             }
-        // }
     }
     
-    console.log(tableOfWords);
     return tableOfWords;
 }
