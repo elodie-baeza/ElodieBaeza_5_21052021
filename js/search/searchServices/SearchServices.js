@@ -21,49 +21,52 @@ export default class SearchServices {
         console.log(this.searchParams)
         console.log(this.searchResult)
 
-        // si aucun param, affiche toutes les recettes
-        if (this.searchParams.isEmpty() == true) {
-            this.searchResultFinal = SearchServiceInput.research(this.searchParams); //30
-            this.buildSearchresult(this.searchResultFinal);
-            this.buildDom(this.searchResult);
-        }   
+        switch (this.searchParams.status()) {
+            case 0: // si aucun param, affiche toutes les recettes
+                this.searchResultFinal = SearchServiceInput.research(this.searchParams); //30
+                this.buildSearchresult(this.searchResultFinal);
+                this.buildDom(this.searchResult);    
+                break;
         
-        //si champ principal valide (au moins 3 caractères)
-        if (this.searchParams.isValidForPrimarySearch() == true) {
-            //cherche les recettes suivant la recherche principale
-            this.searchMainRecipesResult = SearchServiceInput.research(this.searchParams); //30
-            this.searchResultFinal = this.searchMainRecipesResult; //30
-            
-            //affiche message si aucun résultat
-            if (this.searchResultFinal.size == 0) {
+            case 1: // si texte dans champ principal
+                //cherche les recettes suivant la recherche principale
+                this.searchMainRecipesResult = SearchServiceInput.research(this.searchParams); //30
+                this.searchResultFinal = this.searchMainRecipesResult; //30
+                
+                //affiche les recettes trouvées 
+                if (this.searchResultFinal.size !== 0) {
+                    this.buildSearchresult(this.searchResultFinal);
+                    this.buildDom(this.searchResult);
+                    if (this.searchParams.tagIsSelected()) {
+                        this.searchResultFinal = SearchServiceSecondary.research(this.searchMainRecipesResult, this.searchParams);//10
+                        this.buildSearchresult(this.searchResultFinal);
+                        // console.log(this.searchParams)
+                        this.buildDom(this.searchResult);
+                    }
+                }
+                else { //sinon affiche message
+                    document.getElementById('recipesContainer').textContent = '';
+                    let html = '';
+                    html += 
+                    `<p class="noResult">Aucune recette ne correspond à votre critère "${this.searchParams.mainInput}" vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>`
+                    document.getElementById('recipesContainer').insertAdjacentHTML('beforeend',html);
+                }
+                break;
+        
+            case 2: // si uniquement tag selectionné
+                this.searchResultFinal = SearchServiceSecondary.research(this.defaultRecipes, this.searchParams);
+                this.buildSearchresult(this.searchResultFinal);
+                this.buildDom(this.searchResult); 
+                break;
+        
+            default:
                 document.getElementById('recipesContainer').textContent = '';
                 let html = '';
                 html += 
-                `<p class="noResult">Aucune recette ne correspond à votre critère "${this.searchParams.mainInput}" vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>`
+                `<p class="noResult">La recherche principale doit être saisie en premier.</p>`
                 document.getElementById('recipesContainer').insertAdjacentHTML('beforeend',html);
-            } else { //sinon affiche les recettes trouvées
-                this.buildSearchresult(this.searchResultFinal);
-                this.buildDom(this.searchResult);
-            }
+                break;
         }
-
-        //si recherche principale + filtre selectionné, recherche parmis les recettes du 1er résultat de la recherche principale
-        if (this.searchParams.isValidForSecondarySearch()) {
-            this.searchResultFinal = SearchServiceSecondary.research(this.searchMainRecipesResult, this.searchParams);//10
-            this.buildSearchresult(this.searchResultFinal);
-            // console.log(this.searchParams)
-            this.buildDom(this.searchResult);
-        }
-
-        //si uniquement filtre selectionné, recherche dans toutes les recettes
-        if (this.searchParams.isValidForTertiarySearch()) {
-            // console.log(this.searchResult, this.searchParams)
-            this.searchResultFinal = SearchServiceSecondary.research(this.defaultRecipes, this.searchParams);
-            // console.log(this.searchResultFinal)
-            this.buildSearchresult(this.searchResultFinal);
-            this.buildDom(this.searchResult); 
-        }
-
         eventClickFilter(document.querySelectorAll('#filtresContainer a'));
 
         console.log(this.searchResult);

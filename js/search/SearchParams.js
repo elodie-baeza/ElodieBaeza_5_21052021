@@ -5,6 +5,31 @@ export default class SearchParams {
         this.appareilsSelected = this.getAppareilsSelected();
         this.ustensilesSelected = this.getUstensilesSelected();
         this.allSelected = new Set([...this.getIngredientsSelected(),...this.getAppareilsSelected(),...this.getUstensilesSelected()]);
+        this.codeStatus = this.status();
+    }
+    status() {
+        if (this.mainInput === ''
+        && this.ingredientsSelected.size == 0
+        && this.appareilsSelected.size == 0
+        && this.ustensilesSelected.size == 0
+        ) { //params empty
+            this.codeStatus = 0 ;
+        } 
+        else if (this.mainInput.trim().length > 2
+        && this.ingredientsSelected.size == 0
+        && this.appareilsSelected.size == 0
+        && this.ustensilesSelected.size == 0
+        ) { //only main input
+            this.codeStatus = 1;
+        } 
+        else if (this.mainInput === ''
+        && this.ingredientsSelected.size !== 0
+        || this.appareilsSelected.size !== 0
+        || this.ustensilesSelected.size !== 0
+        ) { //only tag
+            this.codeStatus = 2;
+        }
+        return this.codeStatus;
     }
     isEmpty() {
         return (
@@ -19,7 +44,7 @@ export default class SearchParams {
         // return regex.test(this.mainInput)
         return this.mainInput.trim().length > 2
     }
-    isValidForSecondarySearch() {
+    tagIsSelected() {
         return (
             this.isValidForPrimarySearch()
             && this.ingredientsSelected.size > 0
