@@ -1,13 +1,14 @@
 export default class SearchParams {
     constructor () {
         this.mainInput = document.getElementById('mainSearch').value;
+        console.log(this.mainInput)
         this.ingredientsSelected = this.getIngredientsSelected();
         this.appareilsSelected = this.getAppareilsSelected();
         this.ustensilesSelected = this.getUstensilesSelected();
         this.allSelected = new Set([...this.getIngredientsSelected(),...this.getAppareilsSelected(),...this.getUstensilesSelected()]);
     }
     isEmpty() {
-        return this.mainInput === ''
+        return this.mainInput.trim().length <=2
             && (this.ingredientsSelected.size == 0
             && this.appareilsSelected.size == 0
             && this.ustensilesSelected.size == 0)
