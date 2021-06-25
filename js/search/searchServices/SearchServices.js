@@ -10,7 +10,7 @@ import DomFilters from "../../dom/selectTags/DomFilters.js"
 export default class SearchServices {
     constructor() {
         this.defaultRecipes = recipes;
-        this.listOfRecipesFound;
+        this.listOfRecipesFound = this.defaultRecipes;
     }
 
     launchSearch() {
@@ -23,7 +23,7 @@ export default class SearchServices {
         // si texte présent dans champ principal
         if (this.searchParams.isEmpty() || this.searchParams.asMainInput() || this.searchParams.asMainInputAndTags()) {
             // lance une recherche principale
-            this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput); //30
+            this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, this.listOfRecipesFound); //30
             this.searchResult.build(this.listOfRecipesFound);
             this.buildDom(this.searchResult);
             // si recettes trouvées
