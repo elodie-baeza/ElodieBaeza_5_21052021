@@ -3,4 +3,3 @@ js/fixtures
 dist
 *.json
 webpack.config.js
-*test.js
