@@ -10,8 +10,7 @@ import DomFilters from "../../dom/selectTags/DomFilters.js"
 export default class SearchServices {
     constructor() {
         this.defaultRecipes = recipes;
-        this.searchMainRecipesResult = this.defaultRecipes;
-        this.searchResultFinal = this.defaultRecipes;
+        this.listOfRecipesFound;
     }
 
     launchSearch() {
@@ -19,31 +18,25 @@ export default class SearchServices {
         this.searchResult = new SearchResult();
 
         console.log(this.searchParams)
-        console.log(this.searchResultFinal)
-
-        // si aucun param, affiche toutes les recettes
-        if (this.searchParams.isEmpty()){
-            this.buildSearchresult(this.searchResultFinal);
-            this.buildDom(this.searchResult);    
-        }
+        console.log(this.listOfRecipesFound)
     
         // si texte présent dans champ principal
-        if (this.searchParams.asMainInput()) {
+        if (this.searchParams.isEmpty() || this.searchParams.asMainInput() || this.searchParams.asMainInputAndTags()) {
             // lance une recherche principale
-            this.searchMainRecipesResult = SearchByMainInput.research(this.searchParams.mainInput); //30
-            this.searchResultFinal = this.searchMainRecipesResult; //30
-            this.buildSearchresult(this.searchResultFinal);
+            this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput); //30
+            this.searchResult.build(this.listOfRecipesFound);
             this.buildDom(this.searchResult);
             // si recettes trouvées
-            if (this.searchResultFinal.size !== 0) {
+            if (this.listOfRecipesFound.size !== 0) {
                 // si tag selectionné
                 if (this.searchParams.asMainInputAndTags()) {
                     // lance une recherche secondaire dans le résultat de la recherche principale
-                    this.searchResultFinal = SearchByTags.research(this.searchMainRecipesResult, this.searchParams);
-                    this.buildSearchresult(this.searchResultFinal);
+                    this.listOfRecipesFound = SearchByTags.research(this.listOfRecipesFound, this.searchParams);
+                    this.searchResult.build(this.listOfRecipesFound);
                     this.buildDom(this.searchResult);
                 }
-            } else { //sinon affiche message
+            } //si aucun résultat affiche message
+            if (this.listOfRecipesFound.size === 0) {
                 document.getElementById('recipesContainer').textContent = '';
                 let html = '';
                 html += 
@@ -53,36 +46,18 @@ export default class SearchServices {
         }
 
         // si uniquement tag selectionné
-        if (this.searchParams.asOnlyTags()) {            
-            this.searchResultFinal = SearchByTags.research(this.searchResultFinal,this.searchParams);
-            this.buildSearchresult(this.searchResultFinal);
+        else if (this.searchParams.asOnlyTags()) {            
+            this.listOfRecipesFound = SearchByTags.research(this.listOfRecipesFound,this.searchParams);
+            this.searchResult.build(this.listOfRecipesFound);
             this.buildDom(this.searchResult); 
         }
-        
+    
         eventClickFilter(document.querySelectorAll('#filtresContainer a'));
 
-        console.log(this.searchResultFinal);
-        return this.searchResultFinal;
+        console.log(this.listOfRecipesFound);
+        return this.listOfRecipesFound;
     }
     
-    buildSearchresult(result) {
-        this.searchResult.recipes = result;
-        this.searchResult.ingredients.clear();
-        this.searchResult.appareils.clear();
-        this.searchResult.ustensiles.clear();
-
-        this.searchResult.recipes.forEach(recipe => {
-            recipe.ingredients.forEach(element => {
-                this.searchResult.ingredients.add(element.ingredient);
-            });
-            this.searchResult.appareils.add(recipe.appliance);
-            recipe.ustensils.forEach(element => {
-                this.searchResult.ustensiles.add(element);
-            });
-        })
-        this.searchResult.allFilter = [...this.searchResult.ingredients,...this.searchResult.appareils,...this.searchResult.ustensiles];
-    }
-
     buildDom(result) {
         DomRecipes.buildRecipes(result.recipes);
         DomFilters.buildFilter(this.searchParams.ingredientsSelected, result.ingredients,'ingredientsListParent','ingredient');
