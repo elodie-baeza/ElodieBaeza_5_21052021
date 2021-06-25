@@ -1,7 +1,6 @@
 export default class SearchParams {
     constructor () {
         this.mainInput = document.getElementById('mainSearch').value;
-        console.log(this.mainInput)
         this.ingredientsSelected = this.getIngredientsSelected();
         this.appareilsSelected = this.getAppareilsSelected();
         this.ustensilesSelected = this.getUstensilesSelected();
