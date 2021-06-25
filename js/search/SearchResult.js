@@ -1,3 +1,5 @@
+import { recipes } from "../data/recipes.js";
+
 export default class SearchResult {
     constructor() {
         this.recipes = [];
@@ -6,11 +8,16 @@ export default class SearchResult {
         this.ustensiles = new Set();
         this.allFilter = new Set();
     }
-    build(result) {
-        this.recipes = result;
+
+    build(resultCleanRecipes) {
+        this.recipes = [];
         this.ingredients.clear();
         this.appareils.clear();
         this.ustensiles.clear();
+
+        resultCleanRecipes.forEach(recipeClean => {
+            this.recipes.push(recipes[recipeClean.id-1]);
+        });
 
         this.recipes.forEach(recipe => {
             recipe.ingredients.forEach(element => {
