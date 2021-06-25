@@ -1,16 +1,15 @@
 import SearchParams from "../SearchParams.js"
-import { recipes } from "../../data/recipes.js"
 import SearchResult from "../SearchResult.js"
 import SearchByMainInput from "./SearchByMainInput.js"
 import SearchByTags from "./SearchByTags.js"
 import eventClickFilter from "../../listener/eventClick.js"
 import DomRecipes from "../../dom/recipes/DomRecipes.js"
 import DomFilters from "../../dom/selectTags/DomFilters.js"
+import { recipesClean } from "../../app.js"
 
 export default class SearchServices {
     constructor() {
-        this.defaultRecipes = recipes;
-        this.listOfRecipesFound = this.defaultRecipes;
+        this.listOfRecipesFound = recipesClean;
     }
 
     launchSearch() {
@@ -23,7 +22,7 @@ export default class SearchServices {
         // si champ principal vide et aucun tag
         if (this.searchParams.isEmpty()) {
             // lance une recherche principale
-            this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, this.defaultRecipes); //30
+            this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, recipesClean); //30
             this.searchResult.build(this.listOfRecipesFound);
             this.buildDom(this.searchResult);
         }
