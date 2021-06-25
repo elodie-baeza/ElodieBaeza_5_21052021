@@ -28,16 +28,9 @@ export default class SearchServices {
         }
 
         // si texte présent dans champ principal
-        if (this.searchParams.isEmpty()) {
-            // lance une recherche principale
-            this.listOfRecipesFound = SearchByMainInput.research(this.defaultRecipes); //30
-            this.searchResult.build(this.listOfRecipesFound);
-            this.buildDom(this.searchResult);
-        }
-        // si texte présent dans champ principal
         if (this.searchParams.asMainInput() || this.searchParams.asMainInputAndTags()) {
             // lance une recherche principale
-            this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, this.listOfRecipesFound); //30
+            this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, recipesClean); //30
             this.searchResult.build(this.listOfRecipesFound);
             this.buildDom(this.searchResult);
             // si recettes trouvées
