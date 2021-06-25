@@ -20,8 +20,16 @@ export default class SearchServices {
         console.log(this.searchParams)
         console.log(this.listOfRecipesFound)
     
+        // si champ principal vide et aucun tag
+        if (this.searchParams.isEmpty()) {
+            // lance une recherche principale
+            this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, this.defaultRecipes); //30
+            this.searchResult.build(this.listOfRecipesFound);
+            this.buildDom(this.searchResult);
+        }
+
         // si texte présent dans champ principal
-        if (this.searchParams.isEmpty() || this.searchParams.asMainInput() || this.searchParams.asMainInputAndTags()) {
+        if (this.searchParams.asMainInput() || this.searchParams.asMainInputAndTags()) {
             // lance une recherche principale
             this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, this.listOfRecipesFound); //30
             this.searchResult.build(this.listOfRecipesFound);

@@ -7,7 +7,7 @@ export default class SearchParams {
         this.allSelected = new Set([...this.getIngredientsSelected(),...this.getAppareilsSelected(),...this.getUstensilesSelected()]);
     }
     isEmpty() {
-        return this.mainInput.trim().length <=2
+        return this.mainInput.trim().length == ''
             && (this.ingredientsSelected.size == 0
             && this.appareilsSelected.size == 0
             && this.ustensilesSelected.size == 0)
