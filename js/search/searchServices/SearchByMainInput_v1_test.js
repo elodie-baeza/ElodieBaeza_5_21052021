@@ -1834,11 +1834,11 @@ function research(str, result) {
     return recipesResultList;
 }
 /******************TEST VERSION 2 *************** */
-research('pom', recipesClean);
-research('pomm', recipesClean);
-research('pomme', recipesClean);
-research('pomme ', recipesClean);
-research('pomme t', recipesClean);
-research('pomme te', recipesClean);
-research('pomme ter', recipesClean);
-research('pomme de terr', recipesClean);
+research('pom', recipesClean);          //50
+research('pomm', recipesClean);         //50
+research('pomme', recipesClean);        //50
+research('pomme ', recipesClean);       //50
+research('pomme t', recipesClean);      //50
+research('pomme te', recipesClean);     //50
+research('pomme ter', recipesClean);    //50
+research('pomme terr', recipesClean);   //50
