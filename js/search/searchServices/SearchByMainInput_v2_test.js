@@ -1834,11 +1834,11 @@ function research(str, result) {
     return recipesResultList;
 }
 /******************TEST VERSION 2 *************** */
-let result = research('pom', recipesClean);
-result = research('pomm', result);
-result = research('pomme', result);
-result = research('pomme ', result);
-result = research('pomme t', result);
-result = research('pomme te', result);
-result = research('pomme ter', result);
-research('pomme de terr', result);
+let result = research('pom', recipesClean); //10
+result = research('pomm', result);          //10
+result = research('pomme', result);         //10
+result = research('pomme ', result);        //10
+result = research('pomme t', result);       //10
+result = research('pomme te', result);      //10
+result = research('pomme ter', result);     //9
+research('pomme terr', result);             //6
