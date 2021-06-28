@@ -19,46 +19,56 @@ export default class SearchServices {
         console.log(this.searchParams)
         console.log(this.listOfRecipesFound)
     
-        // si champ principal vide et aucun tag
+        //si champ principal vide et aucun tag
         if (this.searchParams.isEmpty()) {
             // lance une recherche principale
-            this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, recipesClean); //30
-            this.searchResult.build(this.listOfRecipesFound);
+            this.searchResult.build(recipesClean);
             this.buildDom(this.searchResult);
         }
-
         // si texte présent dans champ principal
-        if (this.searchParams.asMainInput() || this.searchParams.asMainInputAndTags()) {
-            // lance une recherche principale
-            this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, this.listOfRecipesFound); //30
-            this.searchResult.build(this.listOfRecipesFound);
-            this.buildDom(this.searchResult);
-            // si recettes trouvées
-            if (this.listOfRecipesFound.size !== 0) {
-                // si tag selectionné
-                if (this.searchParams.asMainInputAndTags()) {
-                    // lance une recherche secondaire dans le résultat de la recherche principale
-                    this.listOfRecipesFound = SearchByTags.research(this.listOfRecipesFound, this.searchParams);
-                    this.searchResult.build(this.listOfRecipesFound);
-                    this.buildDom(this.searchResult);
+        else if (this.searchParams.asMainInput() || this.searchParams.asMainInputAndTags()) {
+            //si le champ precedent > champ actuel (user efface caractère) 
+            //ou le nbre de tags precedent > nbre de tags actuel
+            //alors cherche dans toutes les recettes
+            if (this.previousParams.mainInput.length > this.searchParams.mainInput.length
+                || this.previousParams.allSelected.size > this.searchParams.allSelected.size) {
+                // lance une recherche principale
+                this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, recipesClean); //30
+                this.searchResult.build(this.listOfRecipesFound);
+                this.buildDom(this.searchResult);
+            } else {
+                // lance une recherche principale
+                this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, this.listOfRecipesFound); //30
+                this.searchResult.build(this.listOfRecipesFound);
+                this.buildDom(this.searchResult);
+                // si recettes trouvées
+                if (this.listOfRecipesFound.size !== 0) {
+                    // si tag selectionné
+                    if (this.searchParams.asMainInputAndTags()) {
+                        // lance une recherche secondaire dans le résultat de la recherche principale
+                        this.listOfRecipesFound = SearchByTags.research(this.listOfRecipesFound, this.searchParams);
+                        this.searchResult.build(this.listOfRecipesFound);
+                        this.buildDom(this.searchResult);
+                    }
+                } //si aucun résultat affiche message
+                if (this.listOfRecipesFound.size === 0) {
+                    document.getElementById('recipesContainer').textContent = '';
+                    let html = '';
+                    html += 
+                    `<p class="noResult">Aucune recette ne correspond à votre critère "${this.searchParams.mainInput}" vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>`
+                    document.getElementById('recipesContainer').insertAdjacentHTML('beforeend',html);
                 }
-            } //si aucun résultat affiche message
-            if (this.listOfRecipesFound.size === 0) {
-                document.getElementById('recipesContainer').textContent = '';
-                let html = '';
-                html += 
-                `<p class="noResult">Aucune recette ne correspond à votre critère "${this.searchParams.mainInput}" vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>`
-                document.getElementById('recipesContainer').insertAdjacentHTML('beforeend',html);
             }
         }
-
         // si uniquement tag selectionné
         else if (this.searchParams.asOnlyTags()) {            
             this.listOfRecipesFound = SearchByTags.research(this.listOfRecipesFound,this.searchParams);
             this.searchResult.build(this.listOfRecipesFound);
             this.buildDom(this.searchResult); 
         }
-    
+        
+        this.previousParams = new SearchParams()
+
         eventClickFilter(document.querySelectorAll('#filtresContainer a'));
 
         console.log(this.listOfRecipesFound);
