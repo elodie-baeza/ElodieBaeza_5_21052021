@@ -3,3 +3,4 @@ js/fixtures
 dist
 *.json
 webpack.config.js
+benchmark
