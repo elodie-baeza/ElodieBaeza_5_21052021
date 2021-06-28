@@ -8,15 +8,9 @@ export default class SearchByMainInput {
         this.arrayMainInput = tableOfWords(mainInput);
 
         resultList.forEach(recipe => {
-            if (this.arrayMainInput.every(x => recipe.name.includes(x) || recipe.description.includes(x))) {
+            if (this.arrayMainInput.every(x => recipe.name.includes(x) || recipe.description.includes(x) || recipe.ingredientsString.includes(x))) {
                 this.recipesResultList.add(recipesClean[recipe.id-1]);
             }
-
-            recipe.ingredients.forEach(ingredient => {
-                if (this.arrayMainInput.every(x => ingredient.includes(x))) {
-                    this.recipesResultList.add(recipesClean[recipe.id-1]);
-                };
-            });
         })
 
         return this.recipesResultList;
