@@ -22,8 +22,7 @@ export default class SearchServices {
         // si champ principal vide et aucun tag
         if (this.searchParams.isEmpty()) {
             // lance une recherche principale
-            this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, recipesClean); //30
-            this.searchResult.build(this.listOfRecipesFound);
+            this.searchResult.build(recipesClean);
             this.buildDom(this.searchResult);
         }
 
@@ -42,7 +41,7 @@ export default class SearchServices {
                     this.searchResult.build(this.listOfRecipesFound);
                     this.buildDom(this.searchResult);
                 }
-            } //si aucun résultat affiche message
+            } //si aucun résultat, affiche message
             if (this.listOfRecipesFound.size === 0) {
                 document.getElementById('recipesContainer').textContent = '';
                 let html = '';
