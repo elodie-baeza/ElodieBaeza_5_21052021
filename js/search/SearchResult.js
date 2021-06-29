@@ -3,6 +3,7 @@ import { recipes } from "../data/recipes.js";
 export default class SearchResult {
     constructor() {
         this.recipes = [];
+        this.recipesId = []
         this.ingredients = new Set();
         this.appareils = new Set();
         this.ustensiles = new Set();
@@ -15,19 +16,17 @@ export default class SearchResult {
         this.appareils.clear();
         this.ustensiles.clear();
 
-        resultCleanRecipes.forEach(recipeClean => {
-            this.recipes.push(recipes[recipeClean.id-1]);
-        });
-
-        this.recipes.forEach(recipe => {
-            recipe.ingredients.forEach(element => {
+        resultCleanRecipes.forEach(id => {
+            recipes[id-1].ingredients.forEach(element => {
                 this.ingredients.add(element.ingredient);
             });
-            this.appareils.add(recipe.appliance);
-            recipe.ustensils.forEach(element => {
+            this.appareils.add(recipes[id-1].appliance);
+            recipes[id-1].ustensils.forEach(element => {
                 this.ustensiles.add(element);
             });
+            this.recipes.push(recipes[id-1]);
         })
+
         this.allFilter = [...this.ingredients,...this.appareils,...this.ustensiles];
     }
 }

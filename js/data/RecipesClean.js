@@ -30,4 +30,12 @@ export default class RecipesClean {
         
         return this.recipesClean;
     }
+    static getAllId() {
+        this.allId = [];
+
+        this.recipesClean.forEach(recipe => {
+            this.allId.push(recipe.id);
+        });
+        return this.allId;
+    }
 }

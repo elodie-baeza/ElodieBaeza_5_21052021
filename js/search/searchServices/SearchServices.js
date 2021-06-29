@@ -5,24 +5,24 @@ import SearchByTags from "./SearchByTags.js"
 import eventClickFilter from "../../listener/eventClick.js"
 import DomRecipes from "../../dom/recipes/DomRecipes.js"
 import DomFilters from "../../dom/selectTags/DomFilters.js"
-import { recipesClean } from "../../app.js"
+import { allIdList } from "../../app.js"
 
 export default class SearchServices {
     constructor() {
-        this.listOfRecipesFound = recipesClean;
+        this.listOfRecipesFound = allIdList;
     }
 
     launchSearch() {
         this.searchParams = new SearchParams();
         this.searchResult = new SearchResult();
 
+        console.log(this.searchResult)
         console.log(this.searchParams)
-        console.log(this.listOfRecipesFound)
     
         //si champ principal vide et aucun tag
         if (this.searchParams.isEmpty()) {
             // lance une recherche principale
-            this.searchResult.build(recipesClean);
+            this.searchResult.build(allIdList);
             this.buildDom(this.searchResult);
         }
         // si texte présent dans champ principal
@@ -33,7 +33,7 @@ export default class SearchServices {
             if (this.previousParams.mainInput.length > this.searchParams.mainInput.length
                 || this.previousParams.allSelected.size > this.searchParams.allSelected.size) {
                 // lance une recherche principale
-                this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, recipesClean); //30
+                this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, allIdList); //30
                 this.searchResult.build(this.listOfRecipesFound);
                 this.buildDom(this.searchResult);
             } else {
@@ -42,7 +42,7 @@ export default class SearchServices {
                 this.searchResult.build(this.listOfRecipesFound);
                 this.buildDom(this.searchResult);
                 // si recettes trouvées
-                if (this.listOfRecipesFound.size !== 0) {
+                if (this.listOfRecipesFound.length !== 0) {
                     // si tag selectionné
                     if (this.searchParams.asMainInputAndTags()) {
                         // lance une recherche secondaire dans le résultat de la recherche principale
@@ -51,7 +51,7 @@ export default class SearchServices {
                         this.buildDom(this.searchResult);
                     }
                 } //si aucun résultat affiche message
-                if (this.listOfRecipesFound.size === 0) {
+                if (this.listOfRecipesFound.length === 0) {
                     document.getElementById('recipesContainer').textContent = '';
                     let html = '';
                     html += 
@@ -61,8 +61,8 @@ export default class SearchServices {
             }
         }
         // si uniquement tag selectionné
-        else if (this.searchParams.asOnlyTags()) {            
-            this.listOfRecipesFound = SearchByTags.research(this.listOfRecipesFound,this.searchParams);
+        else if (this.searchParams.asOnlyTags()) {   
+            this.listOfRecipesFound = SearchByTags.research(allIdList, this.searchParams);
             this.searchResult.build(this.listOfRecipesFound);
             this.buildDom(this.searchResult); 
         }
@@ -71,7 +71,6 @@ export default class SearchServices {
 
         eventClickFilter(document.querySelectorAll('#filtresContainer a'));
 
-        console.log(this.listOfRecipesFound);
         return this.listOfRecipesFound;
     }
     

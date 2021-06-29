@@ -2,17 +2,18 @@ import { recipesClean } from "../../app.js";
 import { tableOfWords } from "../../utils/tableOfWords.js";
 
 export default class SearchByMainInput {
-    static research(mainInput, resultList) {
-        this.recipesResultList = new Set();
-        // this.recipes = recipesClean;
+    static research(mainInput, resultIdList) {
+        this.recipesResultSetList = new Set();
         this.arrayMainInput = tableOfWords(mainInput);
 
-        resultList.forEach(recipe => {
-            if (this.arrayMainInput.every(x => recipe.name.includes(x) || recipe.description.includes(x) || recipe.ingredientsString.includes(x))) {
-                this.recipesResultList.add(recipesClean[recipe.id-1]);
+        resultIdList.forEach(id => {
+            if (this.arrayMainInput.every(x => recipesClean[id-1].name.includes(x)
+            || recipesClean[id-1].description.includes(x)
+            || recipesClean[id-1].ingredientsString.includes(x))) {
+                this.recipesResultSetList.add(id);
             }
         })
-
-        return this.recipesResultList;
+        this.recipesArray = new Array(...this.recipesResultSetList)
+        return this.recipesArray;
     }
 }

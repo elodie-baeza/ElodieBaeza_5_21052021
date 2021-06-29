@@ -8,6 +8,7 @@ console.log(recipes);
 
 export const recipesClean = RecipesClean.clean();
 console.log(recipesClean);
+export const allIdList = RecipesClean.getAllId();
 
 export const searchServices = new SearchServices();
 searchServices.launchSearch();
