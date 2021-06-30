@@ -34,9 +34,28 @@ export function eventClickTags() {
     document.querySelectorAll('#tagsContainer i').forEach(tag => tag.addEventListener('click', function (event){
         //récupère le texte du tag à fermer
         const txtTagToRemove = event.target.parentNode.querySelector('#tagsContainer span').innerHTML;
-
+        //recupère la class du tag clické
+        let tagClass = event.target.parentNode.className
+        //cherche en fonction de la classe, le filtre dans la bonne catégorie
+        let selectedClass = []
+        switch (tagClass) {
+            case 'badge badge--ingredient':
+                selectedClass = document.getElementsByClassName('ingredient selected');
+                break;
+        
+            case 'badge badge--appareil':
+                selectedClass = document.getElementsByClassName('appareil selected');
+                break;
+        
+            case 'badge badge--ustensile':
+                selectedClass = document.getElementsByClassName('ustensile selected');
+                break;
+        
+            default:
+                selectedClass = document.getElementsByClassName('selected');
+                break;
+        }
         //supprime class 'selected' dans HTML
-        const selectedClass = document.getElementsByClassName('selected');
         const selectedClassArray = Array.from(selectedClass);
         let index = selectedClassArray.findIndex(toto => toto.innerHTML === txtTagToRemove);
         selectedClass[index].classList.remove('selected');
