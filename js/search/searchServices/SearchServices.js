@@ -16,8 +16,8 @@ export default class SearchServices {
         this.searchParams = new SearchParams();
         this.searchResult = new SearchResult();
 
-        console.log(this.searchParams)
-        console.log(this.listOfRecipesFound)
+        // console.log(this.searchParams)
+        // console.log(this.listOfRecipesFound)
     
         //si champ principal vide et aucun tag
         if (this.searchParams.isEmpty()) {
@@ -71,7 +71,6 @@ export default class SearchServices {
 
         eventClickFilter(document.querySelectorAll('#filtresContainer a'));
 
-        console.log(this.listOfRecipesFound);
         return this.listOfRecipesFound;
     }
     

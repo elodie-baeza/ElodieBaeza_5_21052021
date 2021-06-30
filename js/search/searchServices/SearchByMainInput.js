@@ -13,7 +13,7 @@ export default class SearchByMainInput {
                 this.arrayMainInput[index] = word.substr(0, word.length-1)
             }
         });
-        console.log(this.arrayMainInput)
+        // console.log(this.arrayMainInput)
         resultList.forEach(recipe => {
             if (this.arrayMainInput.every(x => recipe.name.includes(x)
             || recipe.description.includes(x)
