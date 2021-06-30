@@ -53,7 +53,7 @@ export default class SearchServices {
 
         // si uniquement tag selectionné
         else if (this.searchParams.asOnlyTags()) {            
-            this.listOfRecipesFound = SearchByTags.research(this.listOfRecipesFound,this.searchParams);
+            this.listOfRecipesFound = SearchByTags.research(recipesClean,this.searchParams);
             this.searchResult.build(this.listOfRecipesFound);
             this.buildDom(this.searchResult); 
         }
