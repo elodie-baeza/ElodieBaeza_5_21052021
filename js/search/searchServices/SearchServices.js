@@ -26,21 +26,25 @@ export default class SearchServices {
             this.buildDom(this.searchResult);
         }
         // si texte présent dans champ principal
-        else {
+        else if (this.searchParams.hasMainInput() || this.searchParams.hasMainInputAndTags()) {
             // lance une recherche principale
             this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, allIdList); //30
             this.listOfRecipesFound = SearchByTags.research(this.listOfRecipesFound, this.searchParams);
             this.searchResult.build(this.listOfRecipesFound);
-            if (this.listOfRecipesFound.length !== 0) {
+            if (this.listOfRecipesFound.size !== 0) {
                 this.buildDom(this.searchResult);
             }
-            else if (this.listOfRecipesFound.length === 0) {
+            else if (this.listOfRecipesFound.size === 0) {
                 document.getElementById('recipesContainer').textContent = '';
                 let html = '';
                 html += 
                 `<p class="noResult">Aucune recette ne correspond à votre critère "${this.searchParams.mainInput}" vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>`
                 document.getElementById('recipesContainer').insertAdjacentHTML('beforeend',html);
             }
+        }
+        else if (this.searchParams.hasOnlyTags()) {
+            this.searchResult.build(allIdList);
+            this.buildDom(this.searchResult);
         }
         
         this.previousParams = new SearchParams()
