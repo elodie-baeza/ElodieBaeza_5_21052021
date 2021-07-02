@@ -34,6 +34,7 @@ export default class SearchServices {
                 || this.previousParams.allSelected.size > this.searchParams.allSelected.size) {
                 // lance une recherche principale
                 this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, recipesClean); //30
+                this.listOfRecipesFound = SearchByTags.research(this.listOfRecipesFound, this.searchParams);
                 this.searchResult.build(this.listOfRecipesFound);
                 this.buildDom(this.searchResult);
             } else {
@@ -70,7 +71,7 @@ export default class SearchServices {
         this.previousParams = new SearchParams()
 
         eventClickFilter(document.querySelectorAll('#filtresContainer a'));
-
+        // console.log(this.listOfRecipesFound)
         return this.listOfRecipesFound;
     }
     
