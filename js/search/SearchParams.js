@@ -12,19 +12,19 @@ export default class SearchParams {
             && this.appareilsSelected.size == 0
             && this.ustensilesSelected.size == 0)
     }
-    asMainInput() {
+    hasMainInput() {
         return this.mainInput.trim().length > 2
             && (this.ingredientsSelected.size == 0
             && this.appareilsSelected.size == 0
             && this.ustensilesSelected.size == 0)
     }
-    asOnlyTags() {
+    hasOnlyTags() {
         return this.mainInput === ''
             && (this.ingredientsSelected.size !== 0
             || this.appareilsSelected.size !== 0
             || this.ustensilesSelected.size !== 0)
     }
-    asMainInputAndTags() {
+    hasMainInputAndTags() {
         return this.mainInput.trim().length > 2
             && (this.ingredientsSelected.size !== 0
             || this.appareilsSelected.size !== 0
