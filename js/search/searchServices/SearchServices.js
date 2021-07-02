@@ -26,36 +26,23 @@ export default class SearchServices {
             this.buildDom(this.searchResult);
         }
 
-        // si texte présent dans champ principal
-        if (this.searchParams.asMainInput() || this.searchParams.asMainInputAndTags()) {
+        else if (this.searchParams.mainInput.length > 2 || this.searchParams.allSelected.size !== 0) {
             // lance une recherche principale
             this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, recipesClean); //30
+            this.listOfRecipesFound = SearchByTags.research(this.listOfRecipesFound,this.searchParams);
             this.searchResult.build(this.listOfRecipesFound);
-            this.buildDom(this.searchResult);
             // si recettes trouvées
             if (this.listOfRecipesFound.size !== 0) {
-                // si tag selectionné
-                if (this.searchParams.asMainInputAndTags()) {
-                    // lance une recherche secondaire dans le résultat de la recherche principale
-                    this.listOfRecipesFound = SearchByTags.research(this.listOfRecipesFound, this.searchParams);
-                    this.searchResult.build(this.listOfRecipesFound);
-                    this.buildDom(this.searchResult);
-                }
+                this.buildDom(this.searchResult);
             } //si aucun résultat, affiche message
-            if (this.listOfRecipesFound.size === 0) {
+            else if (this.listOfRecipesFound.size === 0) {
+                this.buildDom(this.searchResult);
                 document.getElementById('recipesContainer').textContent = '';
                 let html = '';
                 html += 
                 `<p class="noResult">Aucune recette ne correspond à votre critère "${this.searchParams.mainInput}" vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>`
                 document.getElementById('recipesContainer').insertAdjacentHTML('beforeend',html);
             }
-        }
-
-        // si uniquement tag selectionné
-        else if (this.searchParams.asOnlyTags()) {            
-            this.listOfRecipesFound = SearchByTags.research(recipesClean,this.searchParams);
-            this.searchResult.build(this.listOfRecipesFound);
-            this.buildDom(this.searchResult); 
         }
     
         eventClickFilter(document.querySelectorAll('#filtresContainer a'));
