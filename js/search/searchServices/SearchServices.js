@@ -26,7 +26,7 @@ export default class SearchServices {
             this.buildDom(this.searchResult);
         }
 
-        else if (this.searchParams.mainInput.length > 2 || this.searchParams.allSelected.size !== 0) {
+        else if (this.searchParams.hasMainInput || this.searchParams.hasMainInputAndTags) {
             // lance une recherche principale
             this.listOfRecipesFound = SearchByMainInput.research(this.searchParams.mainInput, recipesClean); //30
             this.listOfRecipesFound = SearchByTags.research(this.listOfRecipesFound,this.searchParams);
@@ -43,6 +43,11 @@ export default class SearchServices {
                 `<p class="noResult">Aucune recette ne correspond à votre critère "${this.searchParams.mainInput}" vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>`
                 document.getElementById('recipesContainer').insertAdjacentHTML('beforeend',html);
             }
+        }
+        else if (this.searchParams.hasOnlyTags()) {
+            this.listOfRecipesFound = SearchByTags.research(recipesClean,this.searchParams);
+            this.searchResult.build(this.listOfRecipesFound);
+            this.buildDom(this.searchResult);
         }
     
         eventClickFilter(document.querySelectorAll('#filtresContainer a'));
