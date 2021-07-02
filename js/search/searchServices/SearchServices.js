@@ -16,8 +16,8 @@ export default class SearchServices {
         this.searchParams = new SearchParams();
         this.searchResult = new SearchResult();
 
-        console.log(this.searchResult)
-        console.log(this.searchParams)
+        // console.log(this.searchResult)
+        // console.log(this.searchParams)
     
         //si champ principal vide et aucun tag
         if (this.searchParams.isEmpty()) {
