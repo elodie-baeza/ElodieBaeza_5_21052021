@@ -266,6 +266,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   border-radius: 5px;
+  transform: translate3d(0px, 64px, 0px) !important;
 }
 
 .col-4 {
